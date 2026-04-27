@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算力性能监测与优化系统</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>算力性能监测与优化系统</h1>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h2>实时性能监测</h2>
+            <canvas id="gpuChart"></canvas>
+            <canvas id="cpuChart"></canvas>
+        </section>
+
+        <section class="bottleneck">
+            <h2>性能瓶颈诊断</h2>
+            <ul id="bottleneckList"></ul>
+        </section>
+
+        <section class="optimization">
+            <h2>优化建议</h2>
+            <ul id="optimizationList"></ul>
+            <button id="optimizeBtn">模拟一键优化</button>
+        </section>
+
+        <section class="task-analysis">
+            <h2>任务性能分析</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>任务ID</th>
+                        <th>迭代速度</th>
+                        <th>算力利用率</th>
+                        <th>通信耗时</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTable"></tbody>
+            </table>
+        </section>
+
+        <section class="alerts">
+            <h2>性能告警</h2>
+            <ul id="alertList"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>系统六：孔德华 - 运维辅助软件</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
