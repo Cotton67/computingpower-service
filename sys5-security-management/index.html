@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算力安全管控系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 左侧侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-icon">🛡️</span>
+            <span class="logo-text">算力安全管控</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-item active" data-page="dashboard">
+                <span>安全概览</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="network">
+                <span>网络安全防护</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="encryption">
+                <span>数据加密管理</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="antivirus">
+                <span>病毒防护</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="alert">
+                <span>安全告警</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="permission">
+                <span>权限管理</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="monitor">
+                <span>节点安全监控</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="backup">
+                <span>数据备份</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="logs">
+                <span>安全日志</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="compliance">
+                <span>合规检测</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 页面标题 -->
+        <header class="page-header">
+            <h1 class="page-title" id="pageTitle">安全概览</h1>
+            <div class="header-right">
+                <div class="current-time" id="currentTime"></div>
+            </div>
+        </header>
+
+        <!-- 安全仪表盘 -->
+        <section id="dashboard" class="page-section active">
+            <!-- 关键指标卡片 -->
+            <div class="dashboard-grid">
+                <!-- 整体安全状态 -->
+                <div class="status-card status-good" id="securityStatus">
+                    <div class="status-icon">✅</div>
+                    <div class="status-info">
+                        <div class="status-label">整体安全状态</div>
+                        <div class="status-value">安全</div>
+                        <div class="status-detail">所有防护系统正常运行</div>
+                    </div>
+                </div>
+
+                <!-- 实时威胁检测 -->
+                <div class="status-card" id="threatCount">
+                    <div class="status-icon">🔍</div>
+                    <div class="status-info">
+                        <div class="status-label">实时威胁检测</div>
+                        <div class="status-value">0</div>
+                        <div class="status-detail">过去24小时威胁</div>
+                    </div>
+                </div>
+
+                <!-- 今日攻击拦截 -->
+                <div class="status-card" id="attackBlocked">
+                    <div class="status-icon">🛡️</div>
+                    <div class="status-info">
+                        <div class="status-label">今日攻击拦截</div>
+                        <div class="status-value">12</div>
+                        <div class="status-detail">拦截率 100%</div>
+                    </div>
+                </div>
+
+                <!-- 系统运行时间 -->
+                <div class="status-card" id="systemUptime">
+                    <div class="status-icon">⏱️</div>
+                    <div class="status-info">
+                        <div class="status-label">系统运行时间</div>
+                        <div class="status-value">72天 8小时</div>
+                        <div class="status-detail">正常运行</div>
+                    </div>
+                </div>
+
+                <!-- 活跃用户数 -->
+                <div class="status-card">
+                    <div class="status-icon">👥</div>
+                    <div class="status-info">
+                        <div class="status-label">活跃用户数</div>
+                        <div class="status-value">156</div>
+                        <div class="status-detail">在线用户</div>
+                    </div>
+                </div>
+
+                <!-- 数据保护率 -->
+                <div class="status-card">
+                    <div class="status-icon">🔒</div>
+                    <div class="status-info">
+                        <div class="status-label">数据保护率</div>
+                        <div class="status-value">99.9%</div>
+                        <div class="status-detail">加密数据占比</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 安全监控区域 -->
+            <div class="monitoring-section">
+                <h2 class="section-title">实时安全监控</h2>
+                <div class="monitoring-grid">
+                    <!-- 网络安全状态 -->
+                    <div class="monitor-card">
+                        <h3>🌐 网络安全状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>防火墙状态:</span>
+                                <span class="status-good">运行中</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>IDS系统:</span>
+                                <span class="status-good">正常</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>IPS系统:</span>
+                                <span class="status-good">正常</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>DDOS防护:</span>
+                                <span class="status-good">启用</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>入侵检测:</span>
+                                <span class="status-good">主动防护</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 数据加密状态 -->
+                    <div class="monitor-card">
+                        <h3>🔐 数据加密状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>静态加密:</span>
+                                <span class="status-good">已启用</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>传输加密:</span>
+                                <span class="status-good">SSL/TLS 1.3</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>密钥管理:</span>
+                                <span class="status-good">正常</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>加密算法:</span>
+                                <span>AES-256</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>密钥轮换:</span>
+                                <span class="status-good">自动轮换</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 系统防护状态 -->
+                    <div class="monitor-card">
+                        <h3>🛡️ 系统防护状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>病毒防护:</span>
+                                <span class="status-good">已启用</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>入侵检测:</span>
+                                <span class="status-good">运行中</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>漏洞扫描:</span>
+                                <span class="status-warning">待更新</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>病毒库更新:</span>
+                                <span class="status-good">最新版本</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>异常监控:</span>
+                                <span class="status-good">实时监控</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 备份状态 -->
+                    <div class="monitor-card">
+                        <h3>💾 备份状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>本地备份:</span>
+                                <span class="status-good">最新</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>异地备份:</span>
+                                <span class="status-good">同步中</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>上次备份:</span>
+                                <span>2小时前</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>备份成功率:</span>
+                                <span class="status-good">100%</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>存储使用率:</span>
+                                <span class="status-good">45%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 权限管理状态 -->
+                    <div class="monitor-card">
+                        <h3>👤 权限管理状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>管理员用户:</span>
+                                <span>3人</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>运维人员:</span>
+                                <span>12人</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>普通用户:</span>
+                                <span>141人</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>异常登录:</span>
+                                <span class="status-good">0次</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>权限变更:</span>
+                                <span class="status-good">正常</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 合规检查状态 -->
+                    <div class="monitor-card">
+                        <h3>✓ 合规检查状态</h3>
+                        <div class="monitor-content">
+                            <div class="monitor-item">
+                                <span>网络安全法:</span>
+                                <span class="status-good">符合</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>数据安全法:</span>
+                                <span class="status-good">符合</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>等级保护:</span>
+                                <span class="status-good">三级等保</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>上次检查:</span>
+                                <span>3天前</span>
+                            </div>
+                            <div class="monitor-item">
+                                <span>下次检查:</span>
+                                <span class="status-warning">待定</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实时告警预览 -->
+            <div class="alert-preview-section">
+                <h2 class="section-title">实时告警预览</h2>
+                <div class="alert-list">
+                    <div class="alert-item alert-info">
+                        <div class="alert-icon">ℹ️</div>
+                        <div class="alert-content">
+                            <div class="alert-message">系统自动备份完成</div>
+                            <div class="alert-time">刚刚</div>
+                        </div>
+                    </div>
+                    <div class="alert-item alert-success">
+                        <div class="alert-icon">✅</div>
+                        <div class="alert-content">
+                            <div class="alert-message">安全扫描完成，未发现威胁</div>
+                            <div class="alert-time">5分钟前</div>
+                        </div>
+                    </div>
+                    <div class="alert-item alert-warning">
+                        <div class="alert-icon">⚠️</div>
+                        <div class="alert-content">
+                            <div class="alert-message">检测到异常登录尝试</div>
+                            <div class="alert-time">15分钟前</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 网络安全防护模块 -->
+        <section id="network" class="page-section">
+            <h2 class="section-title">网络安全防护中心</h2>
+
+            <!-- 网络安全总览 -->
+            <div class="network-overview">
+                <div class="network-card network-good">
+                    <div class="network-icon">🛡️</div>
+                    <div class="network-info">
+                        <div class="network-label">网络安全等级</div>
+                        <div class="network-value">高</div>
+                        <div class="network-status">所有防护系统运行正常</div>
+                    </div>
+                </div>
+
+                <div class="network-card">
+                    <div class="network-icon">🌐</div>
+                    <div class="network-info">
+                        <div class="network-label">网络连接数</div>
+                        <div class="network-value">1,234</div>
+                        <div class="network-status">活跃连接</div>
+                    </div>
+                </div>
+
+                <div class="network-card">
+                    <div class="network-icon">🚫</div>
+                    <div class="network-info">
+                        <div class="network-label">拦截攻击</div>
+                        <div class="network-value">28</div>
+                        <div class="network-status">今日总计</div>
+                    </div>
+                </div>
+
+                <div class="network-card">
+                    <div class="network-icon">📊</div>
+                    <div class="network-info">
+                        <div class="network-label">网络流量</div>
+                        <div class="network-value">45.6 GB/s</div>
+                        <div class="network-status">实时监控</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 防护系统状态 -->
+            <div class="protection-systems">
+                <h3>防护系统状态</h3>
+                <div class="protection-grid">
+                    <!-- 防火墙系统 -->
+                    <div class="protection-item">
+                        <div class="protection-header">
+                            <span class="protection-name">🔥 防火墙系统</span>
+                            <span class="protection-status status-good">运行中</span>
+                        </div>
+                        <div class="protection-details">
+                            <div class="detail-row">
+                                <span>拦截规则:</span>
+                                <span>156条</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>今日拦截:</span>
+                                <span class="status-good">12次</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>最后更新:</span>
+                                <span>2分钟前</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 入侵检测系统 -->
+                    <div class="protection-item">
+                        <div class="protection-header">
+                            <span class="protection-name">👁️ 入侵检测系统(IDS)</span>
+                            <span class="protection-status status-good">正常</span>
+                        </div>
+                        <div class="protection-details">
+                            <div class="detail-row">
+                                <span>检测引擎:</span>
+                                <span>Snort 3.1</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>今日告警:</span>
+                                <span class="status-warning">3次</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>规则更新:</span>
+                                <span>最新</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 入侵防御系统 -->
+                    <div class="protection-item">
+                        <div class="protection-header">
+                            <span class="protection-name">⚔️ 入侵防御系统(IPS)</span>
+                            <span class="protection-status status-good">运行中</span>
+                        </div>
+                        <div class="protection-details">
+                            <div class="detail-row">
+                                <span>防护模式:</span>
+                                <span>主动防御</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>今日阻断:</span>
+                                <span class="status-good">8次</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>威胁库:</span>
+                                <span>已更新</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DDOS防护 -->
+                    <div class="protection-item">
+                        <div class="protection-header">
+                            <span class="protection-name">🌊 DDOS防护系统</span>
+                            <span class="protection-status status-good">启用</span>
+                        </div>
+                        <div class="protection-details">
+                            <div class="detail-row">
+                                <span>防护级别:</span>
+                                <span>高级</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>今日清洗:</span>
+                                <span class="status-good">5GB</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>CC攻击防护:</span>
+                                <span>已启用</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实时网络监控 -->
+            <div class="real-time-monitoring">
+                <h3>实时网络监控</h3>
+                <div class="monitoring-table">
+                    <table class="network-table">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>源IP</th>
+                                <th>目标端口</th>
+                                <th>协议</th>
+                                <th>状态</th>
+                                <th>处理结果</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10:30:45</td>
+                                <td>192.168.1.100</td>
+                                <td>443</td>
+                                <td>HTTPS</td>
+                                <td><span class="status-good">正常</span></td>
+                                <td>放行</td>
+                            </tr>
+                            <tr>
+                                <td>10:30:42</td>
+                                <td>10.0.0.50</td>
+                                <td>22</td>
+                                <td>SSH</td>
+                                <td><span class="status-warning">可疑</span></td>
+                                <td>监控</td>
+                            </tr>
+                            <tr>
+                                <td>10:30:38</td>
+                                <td>192.168.1.101</td>
+                                <td>80</td>
+                                <td>HTTP</td>
+                                <td><span class="status-good">正常</span></td>
+                                <td>放行</td>
+                            </tr>
+                            <tr>
+                                <td>10:30:35</td>
+                                <td>8.8.8.8</td>
+                                <td>53</td>
+                                <td>DNS</td>
+                                <td><span class="status-error">拦截</span></td>
+                                <td>阻断</td>
+                            </tr>
+                            <tr>
+                                <td>10:30:32</td>
+                                <td>192.168.1.102</td>
+                                <td>3389</td>
+                                <td>RDP</td>
+                                <td><span class="status-good">正常</span></td>
+                                <td>放行</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 安全告警系统 -->
+        <section id="alert" class="page-section">
+            <h2 class="section-title">安全告警系统</h2>
+
+            <!-- 告警统计 -->
+            <div class="alert-stats">
+                <div class="alert-stat-card stat-error">
+                    <div class="stat-icon">🔴</div>
+                    <div class="stat-info">
+                        <div class="stat-label">高危告警</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                </div>
+
+                <div class="alert-stat-card stat-warning">
+                    <div class="stat-icon">🟡</div>
+                    <div class="stat-info">
+                        <div class="stat-label">中危告警</div>
+                        <div class="stat-value">3</div>
+                    </div>
+                </div>
+
+                <div class="alert-stat-card stat-info">
+                    <div class="stat-icon">🟢</div>
+                    <div class="stat-info">
+                        <div class="stat-label">低危告警</div>
+                        <div class="stat-value">5</div>
+                    </div>
+                </div>
+
+                <div class="alert-stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-label">已处理</div>
+                        <div class="stat-value">8</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 告警列表 -->
+            <div class="alert-list-section">
+                <div class="section-header">
+                    <h3>实时告警列表</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">高危</button>
+                        <button class="filter-btn">中危</button>
+                        <button class="filter-btn">低危</button>
+                    </div>
+                </div>
+
+                <div class="alert-items">
+                    <!-- 高危告警 -->
+                    <div class="alert-detail-item alert-error">
+                        <div class="alert-header">
+                            <div class="alert-level">高危</div>
+                            <div class="alert-type">网络攻击</div>
+                            <div class="alert-time">10:30:45</div>
+                        </div>
+                        <div class="alert-body">
+                            <div class="alert-message">检测到DDOS攻击尝试，攻击源IP：192.168.1.200</div>
+                            <div class="alert-details">
+                                <span>攻击类型：SYN Flood</span>
+                                <span>持续时间：30秒</span>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="action-btn btn-view">查看详情</button>
+                            <button class="action-btn btn-handle">立即处理</button>
+                            <button class="action-btn btn-ignore">忽略</button>
+                        </div>
+                    </div>
+
+                    <!-- 中危告警 -->
+                    <div class="alert-detail-item alert-warning">
+                        <div class="alert-header">
+                            <div class="alert-level">中危</div>
+                            <div class="alert-type">权限异常</div>
+                            <div class="alert-time">10:15:20</div>
+                        </div>
+                        <div class="alert-body">
+                            <div class="alert-message">检测到异常登录尝试</div>
+                            <div class="alert-details">
+                                <span>用户：admin</span>
+                                <span>来源IP：10.0.0.50</span>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="action-btn btn-view">查看详情</button>
+                            <button class="action-btn btn-handle">处理</button>
+                            <button class="action-btn btn-ignore">忽略</button>
+                        </div>
+                    </div>
+
+                    <!-- 低危告警 -->
+                    <div class="alert-detail-item alert-info">
+                        <div class="alert-header">
+                            <div class="alert-level">低危</div>
+                            <div class="alert-type">系统警告</div>
+                            <div class="alert-time">10:00:15</div>
+                        </div>
+                        <div class="alert-body">
+                            <div class="alert-message">发现可疑文件访问行为</div>
+                            <div class="alert-details">
+                                <span>文件路径：/tmp/suspicious.exe</span>
+                                <span>用户：guest</span>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="action-btn btn-view">查看详情</button>
+                            <button class="action-btn btn-handle">处理</button>
+                            <button class="action-btn btn-ignore">忽略</button>
+                        </div>
+                    </div>
+
+                    <!-- 成功处理 -->
+                    <div class="alert-detail-item alert-success">
+                        <div class="alert-header">
+                            <div class="alert-level">已处理</div>
+                            <div class="alert-type">网络攻击</div>
+                            <div class="alert-time">09:30:10</div>
+                        </div>
+                        <div class="alert-body">
+                            <div class="alert-message">端口扫描攻击已被成功拦截</div>
+                            <div class="alert-details">
+                                <span>处理结果：已阻断</span>
+                                <span>处理时间：2秒</span>
+                            </div>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="action-btn btn-view">查看详情</button>
+                            <span class="processed-mark">✓ 已处理</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 访问权限管理 -->
+        <section id="permission" class="page-section">
+            <h2 class="section-title">访问权限管理</h2>
+
+            <!-- 权限统计 -->
+            <div class="permission-overview">
+                <div class="perm-card perm-admin">
+                    <div class="perm-icon">👑</div>
+                    <div class="perm-info">
+                        <div class="perm-label">管理员</div>
+                        <div class="perm-value">3人</div>
+                        <div class="perm-status">完全权限</div>
+                    </div>
+                </div>
+
+                <div class="perm-card perm-ops">
+                    <div class="perm-icon">🔧</div>
+                    <div class="perm-info">
+                        <div class="perm-label">运维人员</div>
+                        <div class="perm-value">12人</div>
+                        <div class="perm-status">操作权限</div>
+                    </div>
+                </div>
+
+                <div class="perm-card perm-user">
+                    <div class="perm-icon">👤</div>
+                    <div class="perm-info">
+                        <div class="perm-label">普通用户</div>
+                        <div class="perm-value">141人</div>
+                        <div class="perm-status">查看权限</div>
+                    </div>
+                </div>
+
+                <div class="perm-card">
+                    <div class="perm-icon">🔒</div>
+                    <div class="perm-info">
+                        <div class="perm-label">在线用户</div>
+                        <div class="perm-value">156人</div>
+                        <div class="perm-status">实时统计</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 用户管理 -->
+            <div class="user-management">
+                <div class="section-header">
+                    <h3>用户列表</h3>
+                    <button class="add-user-btn">➕ 添加用户</button>
+                </div>
+
+                <div class="user-table">
+                    <table class="permission-table">
+                        <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>角色</th>
+                                <th>部门</th>
+                                <th>状态</th>
+                                <th>最后登录</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>张三</td>
+                                <td><span class="role-badge role-admin">管理员</span></td>
+                                <td>技术部</td>
+                                <td><span class="status-badge status-online">在线</span></td>
+                                <td>2024-04-28 10:00:00</td>
+                                <td>
+                                    <button class="action-link">编辑</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>李四</td>
+                                <td><span class="role-badge role-ops">运维人员</span></td>
+                                <td>运维部</td>
+                                <td><span class="status-badge status-online">在线</span></td>
+                                <td>2024-04-28 09:30:00</td>
+                                <td>
+                                    <button class="action-link">编辑</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>王五</td>
+                                <td><span class="role-badge role-user">普通用户</span></td>
+                                <td>外部</td>
+                                <td><span class="status-badge status-offline">离线</span></td>
+                                <td>2024-04-27 18:00:00</td>
+                                <td>
+                                    <button class="action-link">编辑</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>赵六</td>
+                                <td><span class="role-badge role-ops">运维人员</span></td>
+                                <td>安全部</td>
+                                <td><span class="status-badge status-online">在线</span></td>
+                                <td>2024-04-28 08:45:00</td>
+                                <td>
+                                    <button class="action-link">编辑</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>孙七</td>
+                                <td><span class="role-badge role-user">普通用户</span></td>
+                                <td>研发部</td>
+                                <td><span class="status-badge status-online">在线</span></td>
+                                <td>2024-04-28 07:30:00</td>
+                                <td>
+                                    <button class="action-link">编辑</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据备份管理 -->
+        <section id="backup" class="page-section">
+            <h2 class="section-title">数据备份管理</h2>
+
+            <!-- 备份状态概览 -->
+            <div class="backup-overview">
+                <div class="backup-card backup-success">
+                    <div class="backup-icon">✅</div>
+                    <div class="backup-info">
+                        <div class="backup-label">备份状态</div>
+                        <div class="backup-value">正常</div>
+                        <div class="backup-detail">所有备份任务运行正常</div>
+                    </div>
+                </div>
+
+                <div class="backup-card">
+                    <div class="backup-icon">💾</div>
+                    <div class="backup-info">
+                        <div class="backup-label">总备份数据</div>
+                        <div class="backup-value">5.2 TB</div>
+                        <div class="backup-detail">本地 + 异地备份</div>
+                    </div>
+                </div>
+
+                <div class="backup-card">
+                    <div class="backup-icon">📊</div>
+                    <div class="backup-info">
+                        <div class="backup-label">今日备份</div>
+                        <div class="backup-value">3次</div>
+                        <div class="backup-detail">成功3次，失败0次</div>
+                    </div>
+                </div>
+
+                <div class="backup-card">
+                    <div class="backup-icon">⏰</div>
+                    <div class="backup-info">
+                        <div class="backup-label">下次备份</div>
+                        <div class="backup-value">18:00</div>
+                        <div class="backup-detail">自动备份计划</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 备份历史 -->
+            <div class="backup-history">
+                <div class="section-header">
+                    <h3>备份历史记录</h3>
+                    <button class="backup-now-btn">🔄 立即备份</button>
+                </div>
+
+                <div class="backup-table">
+                    <table class="backup-list-table">
+                        <thead>
+                            <tr>
+                                <th>备份时间</th>
+                                <th>备份类型</th>
+                                <th>数据大小</th>
+                                <th>备份位置</th>
+                                <th>状态</th>
+                                <th>耗时</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-04-28 08:00:00</td>
+                                <td><span class="backup-type type-full">完整备份</span></td>
+                                <td>500 GB</td>
+                                <td>本地 + 异地</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td>25分钟</td>
+                                <td>
+                                    <button class="action-link">恢复</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 04:00:00</td>
+                                <td><span class="backup-type type-incremental">增量备份</span></td>
+                                <td>50 GB</td>
+                                <td>本地 + 异地</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td>8分钟</td>
+                                <td>
+                                    <button class="action-link">恢复</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-27 08:00:00</td>
+                                <td><span class="backup-type type-full">完整备份</span></td>
+                                <td>495 GB</td>
+                                <td>本地 + 异地</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td>24分钟</td>
+                                <td>
+                                    <button class="action-link">恢复</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-27 04:00:00</td>
+                                <td><span class="backup-type type-incremental">增量备份</span></td>
+                                <td>48 GB</td>
+                                <td>本地 + 异地</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td>7分钟</td>
+                                <td>
+                                    <button class="action-link">恢复</button>
+                                    <button class="action-link">删除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 安全日志查询 -->
+        <section id="logs" class="page-section">
+            <h2 class="section-title">安全日志查询</h2>
+
+            <!-- 日志搜索和过滤 -->
+            <div class="log-search-section">
+                <div class="search-form">
+                    <input type="text" class="search-input" placeholder="搜索日志...">
+                    <select class="log-filter">
+                        <option value="all">所有类型</option>
+                        <option value="login">登录日志</option>
+                        <option value="security">安全日志</option>
+                        <option value="access">访问日志</option>
+                    </select>
+                    <input type="date" class="date-filter">
+                    <button class="search-btn">🔍 搜索</button>
+                    <button class="export-btn">📥 导出</button>
+                </div>
+            </div>
+
+            <!-- 日志统计 -->
+            <div class="log-stats">
+                <div class="log-stat-card">
+                    <div class="log-stat-number">1,234</div>
+                    <div class="log-stat-label">总日志数</div>
+                </div>
+                <div class="log-stat-card">
+                    <div class="log-stat-number">56</div>
+                    <div class="log-stat-label">今日新增</div>
+                </div>
+                <div class="log-stat-card">
+                    <div class="log-stat-number">3</div>
+                    <div class="log-stat-label">安全事件</div>
+                </div>
+                <div class="log-stat-card">
+                    <div class="log-stat-number">98%</div>
+                    <div class="log-stat-label">存储使用</div>
+                </div>
+            </div>
+
+            <!-- 日志列表 -->
+            <div class="log-list-section">
+                <div class="section-header">
+                    <h3>安全日志</h3>
+                    <div class="log-filters">
+                        <button class="filter-btn active">最新</button>
+                        <button class="filter-btn">最旧</button>
+                    </div>
+                </div>
+
+                <div class="log-table">
+                    <table class="log-list-table">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>类型</th>
+                                <th>用户</th>
+                                <th>操作</th>
+                                <th>IP地址</th>
+                                <th>状态</th>
+                                <th>详情</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-04-28 10:00:00</td>
+                                <td><span class="log-type type-login">登录日志</span></td>
+                                <td>张三</td>
+                                <td>用户登录</td>
+                                <td>192.168.1.100</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 09:00:00</td>
+                                <td><span class="log-type type-security">安全日志</span></td>
+                                <td>系统</td>
+                                <td>防火墙规则更新</td>
+                                <td>127.0.0.1</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 08:30:00</td>
+                                <td><span class="log-type type-access">访问日志</span></td>
+                                <td>李四</td>
+                                <td>查看系统日志</td>
+                                <td>192.168.1.101</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 08:15:00</td>
+                                <td><span class="log-type type-login">登录日志</span></td>
+                                <td>未知</td>
+                                <td>登录失败</td>
+                                <td>10.0.0.50</td>
+                                <td><span class="status-badge status-error">失败</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 08:00:00</td>
+                                <td><span class="log-type type-security">安全日志</span></td>
+                                <td>系统</td>
+                                <td>自动备份完成</td>
+                                <td>127.0.0.1</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-28 07:45:00</td>
+                                <td><span class="log-type type-access">访问日志</span></td>
+                                <td>王五</td>
+                                <td>访问数据</td>
+                                <td>192.168.1.102</td>
+                                <td><span class="status-badge status-success">成功</span></td>
+                                <td><button class="action-link">查看</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 合规检测模块 -->
+        <section id="compliance" class="page-section">
+            <h2 class="section-title">合规检测系统</h2>
+
+            <!-- 合规状态概览 -->
+            <div class="compliance-overview">
+                <div class="compliance-card compliance-good">
+                    <div class="compliance-icon">✅</div>
+                    <div class="compliance-info">
+                        <div class="compliance-label">整体合规状态</div>
+                        <div class="compliance-value">符合</div>
+                        <div class="compliance-detail">所有检测项通过</div>
+                    </div>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-icon">📊</div>
+                    <div class="compliance-info">
+                        <div class="compliance-label">合规检测项</div>
+                        <div class="compliance-value">8/8</div>
+                        <div class="compliance-detail">全部通过</div>
+                    </div>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-icon">⏰</div>
+                    <div class="compliance-info">
+                        <div class="compliance-label">上次检测</div>
+                        <div class="compliance-value">3天前</div>
+                        <div class="compliance-detail">下次检测：7天后</div>
+                    </div>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-icon">📈</div>
+                    <div class="compliance-info">
+                        <div class="compliance-label">合规评分</div>
+                        <div class="compliance-value">98分</div>
+                        <div class="compliance-detail">优秀等级</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法规检测详情 -->
+            <div class="regulation-check">
+                <div class="section-header">
+                    <h3>法规符合性检测</h3>
+                    <button class="check-btn">🔍 立即检测</button>
+                </div>
+
+                <div class="regulation-list">
+                    <div class="regulation-item regulation-pass">
+                        <div class="regulation-header">
+                            <div class="regulation-name">《网络安全法》</div>
+                            <div class="regulation-status status-pass">符合</div>
+                        </div>
+                        <div class="regulation-details">
+                            <div class="detail-row">
+                                <span>网络安全等级保护:</span>
+                                <span class="status-good">三级通过</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>数据跨境传输:</span>
+                                <span class="status-good">符合要求</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>个人信息保护:</span>
+                                <span class="status-good">满足标准</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="regulation-item regulation-pass">
+                        <div class="regulation-header">
+                            <div class="regulation-name">《数据安全法》</div>
+                            <div class="regulation-status status-pass">符合</div>
+                        </div>
+                        <div class="regulation-details">
+                            <div class="detail-row">
+                                <span>数据分类分级:</span>
+                                <span class="status-good">已完成</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>重要数据保护:</span>
+                                <span class="status-good">措施到位</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>风险评估机制:</span>
+                                <span class="status-good">定期评估</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="regulation-item regulation-pass">
+                        <div class="regulation-header">
+                            <div class="regulation-name">《个人信息保护法》</div>
+                            <div class="regulation-status status-pass">符合</div>
+                        </div>
+                        <div class="regulation-details">
+                            <div class="detail-row">
+                                <span>用户同意机制:</span>
+                                <span class="status-good">已实施</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>个人信息处理:</span>
+                                <span class="status-good">符合规范</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>权利保障机制:</span>
+                                <span class="status-good">功能完善</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="regulation-item regulation-warning">
+                        <div class="regulation-header">
+                            <div class="regulation-name">《等级保护2.0》</div>
+                            <div class="regulation-status status-warning">待更新</div>
+                        </div>
+                        <div class="regulation-details">
+                            <div class="detail-row">
+                                <span>技术要求:</span>
+                                <span class="status-warning">需升级</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>管理要求:</span>
+                                <span class="status-good">符合</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>整改期限:</span>
+                                <span>30天</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 合规报告 -->
+            <div class="compliance-report">
+                <div class="section-header">
+                    <h3>合规检测报告</h3>
+                    <div class="report-actions">
+                        <button class="generate-btn">📄 生成报告</button>
+                        <button class="download-btn">📥 下载报告</button>
+                    </div>
+                </div>
+
+                <div class="report-list">
+                    <div class="report-item">
+                        <div class="report-info">
+                            <div class="report-name">2024年Q1合规检测报告</div>
+                            <div class="report-time">2024-04-25 14:30:00</div>
+                        </div>
+                        <div class="report-status">
+                            <span class="status-badge status-success">通过</span>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn btn-view">查看</button>
+                            <button class="action-btn btn-download">下载</button>
+                        </div>
+                    </div>
+
+                    <div class="report-item">
+                        <div class="report-info">
+                            <div class="report-name">2024年Q4合规检测报告</div>
+                            <div class="report-time">2024-01-20 10:00:00</div>
+                        </div>
+                        <div class="report-status">
+                            <span class="status-badge status-success">通过</span>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn btn-view">查看</button>
+                            <button class="action-btn btn-download">下载</button>
+                        </div>
+                    </div>
+
+                    <div class="report-item">
+                        <div class="report-info">
+                            <div class="report-name">2023年Q3合规检测报告</div>
+                            <div class="report-time">2023-10-15 16:45:00</div>
+                        </div>
+                        <div class="report-status">
+                            <span class="status-badge status-success">通过</span>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn btn-view">查看</button>
+                            <button class="action-btn btn-download">下载</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
