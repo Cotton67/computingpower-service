@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>客户算力租赁服务平台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">KG</div>
+        <div>
+          <h1>客户算力租赁服务平台</h1>
+          <p>Computing Rental Client</p>
+        </div>
+      </div>
+
+      <div class="side-group-title">客户端功能菜单</div>
+      <nav class="side-nav" id="sideNav">
+        <button class="nav-item active" data-page="dashboard"><span>1</span>客户服务驾驶舱</button>
+        <button class="nav-item" data-page="account"><span>2</span>客户账号管理</button>
+        <button class="nav-item" data-page="products"><span>3</span>算力产品选型与下单</button>
+        <button class="nav-item" data-page="usage"><span>4</span>算力使用状态查询</button>
+        <button class="nav-item" data-page="tasks"><span>5</span>任务提交与管理</button>
+        <button class="nav-item" data-page="billing"><span>6</span>费用查询与结算</button>
+        <button class="nav-item" data-page="demand"><span>7</span>算力需求申请</button>
+        <button class="nav-item" data-page="message"><span>8</span>消息通知中心</button>
+        <button class="nav-item" data-page="support"><span>9</span>客户反馈与售后</button>
+        <button class="nav-item" data-page="security"><span>10</span>数据安全管理</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <div>
+          <strong>服务状态正常</strong>
+          <p>GPU 调度、支付、通知服务在线</p>
+        </div>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div>
+          <h2 id="pageTitle">客户服务驾驶舱</h2>
+          <p id="pageDesc">面向租赁客户的一站式算力租赁、任务提交、状态查询与费用结算平台。</p>
+        </div>
+        <div class="top-actions">
+          <div class="search-box">
+            <input id="globalSearch" type="text" placeholder="搜索产品、任务、账单、消息..." />
+          </div>
+          <button class="ghost-btn" id="notifyBtn">消息 <b id="notifyCount">4</b></button>
+          <button class="primary-btn small" id="openLoginBtn">登录 / 注册</button>
+          <div class="avatar">A</div>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- 1. Dashboard -->
+        <section class="page active" id="dashboard">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <span class="eyebrow">系统三 · 客户算力租赁服务平台（客户端软件）</span>
+              <h3>算力租赁、任务管理、费用结算一站式服务</h3>
+              <p>平台面向个人客户与企业客户，提供算力产品选型、在线下单、任务提交、资源监控、运行日志、账单支付、电子发票、售后反馈与数据安全管理能力，降低客户使用门槛并增强客户粘性。</p>
+              <div class="hero-actions">
+                <button class="primary-btn" data-jump="products">立即选择算力产品</button>
+                <button class="secondary-btn" data-jump="tasks">提交训练/推理任务</button>
+              </div>
+            </div>
+            <div class="graph-card">
+              <div class="graph-title">客户租赁服务流程图</div>
+              <div class="node n1">账号注册</div>
+              <div class="node n2">产品选型</div>
+              <div class="node n3">在线下单</div>
+              <div class="node n4">任务提交</div>
+              <div class="node n5">状态查询</div>
+              <div class="node n6">费用结算</div>
+              <div class="node n7">售后反馈</div>
+              <svg class="graph-lines" viewBox="0 0 640 300" preserveAspectRatio="none">
+                <path d="M85 150 C160 70 210 70 290 130" />
+                <path d="M290 130 C350 40 440 60 515 105" />
+                <path d="M290 130 C360 190 425 195 535 175" />
+                <path d="M85 150 C175 225 280 230 365 205" />
+                <path d="M365 205 C430 240 500 235 575 215" />
+                <path d="M515 105 C565 110 585 135 600 160" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-grid compact">
+            <article class="stat-card"><span>已租赁 GPU</span><strong>128 卡</strong><em>较昨日 +12</em></article>
+            <article class="stat-card"><span>运行中任务</span><strong>36 个</strong><em>训练 21 / 推理 15</em></article>
+            <article class="stat-card"><span>本月费用</span><strong>¥ 86,420</strong><em>已支付 ¥52,000</em></article>
+            <article class="stat-card"><span>待处理售后</span><strong>5 单</strong><em>平均响应 18 分钟</em></article>
+          </div>
+
+          <div class="two-col tight">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>核心能力覆盖</h3>
+                <button class="link-btn" data-jump="account">查看账号体系</button>
+              </div>
+              <div class="feature-list dense">
+                <div><b>客户账号管理</b><p>注册、登录、密码重置、个人/企业客户区分、普通/VIP 分级、联系方式与开票信息绑定。</p></div>
+                <div><b>算力产品选型与下单</b><p>B300 8卡集群、单卡租赁、训推一体套餐展示，规格、价格、周期、合同自动生成。</p></div>
+                <div><b>算力使用状态查询</b><p>GPU 负载、任务进度、资源占用率、任务运行日志实时展示。</p></div>
+                <div><b>任务提交与管理</b><p>上传脚本和数据集，设置精度与迭代次数，支持暂停、重启、终止和结果查看。</p></div>
+                <div><b>费用查询与结算</b><p>按小时/天/月计费，生成费用明细、账单，支持在线支付、对公转账和电子发票。</p></div>
+                <div><b>数据安全管理</b><p>客户数据集和任务脚本加密存储，仅客户可查看与操作，满足数据安全法规。</p></div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><h3>实时运行概览</h3><span class="badge ok">自动刷新</span></div>
+              <div class="usage-bars">
+                <div><span>B300 集群 A</span><b>GPU 负载 82%</b><i style="width:82%"></i></div>
+                <div><span>单卡推理池</span><b>GPU 负载 57%</b><i style="width:57%"></i></div>
+                <div><span>训推一体池</span><b>资源占用 69%</b><i style="width:69%"></i></div>
+                <div><span>对象存储加密桶</span><b>容量使用 44%</b><i style="width:44%"></i></div>
+              </div>
+              <div class="mini-table">
+                <div><b>最新任务</b><span>LLM 微调任务 #T-1027</span><em>运行中</em></div>
+                <div><b>最新账单</b><span>2026-04 训推一体套餐</span><em>待支付</em></div>
+                <div><b>最新通知</b><span>B300 资源分配完成</span><em>已发送短信</em></div>
+                <div><b>安全状态</b><span>上传数据 AES-256 加密</span><em>正常</em></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Account -->
+        <section class="page" id="account">
+          <div class="page-grid">
+            <div class="panel span-7">
+              <div class="panel-head"><h3>客户账号管理</h3><span class="badge">个人 / 企业 / VIP</span></div>
+              <p class="section-note">支持客户注册、登录、密码重置，区分个人客户、企业客户，按普通客户、VIP 客户分级管理，并绑定联系方式、开票信息，保障账号安全。</p>
+              <form class="form-grid" id="accountForm">
+                <label>客户类型<select><option>企业客户</option><option>个人客户</option></select></label>
+                <label>客户等级<select><option>VIP客户</option><option>普通客户</option></select></label>
+                <label>登录账号<input value="company_admin@demo.com" /></label>
+                <label>绑定手机号<input value="138****9021" /></label>
+                <label>企业名称<input value="燕山智能科技有限公司" /></label>
+                <label>统一社会信用代码<input value="9113**********A8" /></label>
+                <label>开票抬头<input value="燕山智能科技有限公司" /></label>
+                <label>纳税人识别号<input value="9113**********A8" /></label>
+                <label class="full">联系地址<input value="河北省秦皇岛市海港区科技园 A 座 12 层" /></label>
+                <div class="form-actions full">
+                  <button type="submit" class="primary-btn">保存账号资料</button>
+                  <button type="button" class="secondary-btn" id="resetPwdBtn">发送密码重置链接</button>
+                </div>
+              </form>
+            </div>
+            <div class="panel span-5">
+              <div class="panel-head"><h3>账号安全</h3><span class="badge ok">安全评分 96</span></div>
+              <div class="security-score">
+                <div class="ring"><span>96</span></div>
+                <ul>
+                  <li>已开启短信验证码登录</li>
+                  <li>已绑定企业开票信息</li>
+                  <li>最近登录 IP：120.11.28.7</li>
+                  <li>密码强度：高</li>
+                  <li>登录异常提醒：已开启</li>
+                </ul>
+              </div>
+              <div class="check-list">
+                <label><input type="checkbox" checked /> 登录时进行短信双重验证</label>
+                <label><input type="checkbox" checked /> 费用支付前二次确认</label>
+                <label><input type="checkbox" checked /> 合同生成后发送站内信</label>
+                <label><input type="checkbox" /> 允许专属客服查看售后工单</label>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>客户列表与分级管理</h3><button class="primary-btn small">新增客户</button></div>
+            <table class="data-table">
+              <thead><tr><th>客户名称</th><th>类型</th><th>等级</th><th>联系方式</th><th>开票信息</th><th>账号状态</th><th>安全策略</th></tr></thead>
+              <tbody>
+                <tr><td>燕山智能科技有限公司</td><td>企业客户</td><td><span class="tag gold">VIP客户</span></td><td>138****9021</td><td>已绑定</td><td><span class="status ok">正常</span></td><td>短信验证 / 支付确认</td></tr>
+                <tr><td>王老师课题组</td><td>个人客户</td><td><span class="tag">普通客户</span></td><td>186****3388</td><td>未绑定</td><td><span class="status warn">待完善</span></td><td>密码登录</td></tr>
+                <tr><td>华北 AI 训练实验室</td><td>企业客户</td><td><span class="tag gold">VIP客户</span></td><td>177****6098</td><td>已绑定</td><td><span class="status ok">正常</span></td><td>双重验证 / 操作审计</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 3. Products -->
+        <section class="page" id="products">
+          <div class="panel">
+            <div class="panel-head">
+              <div><h3>算力产品选型与在线下单</h3><p>展示 B300 8卡集群租赁、单卡算力租赁、训推一体套餐等产品，标注算力规格、价格、租赁周期，支持在线下单、支付与合同生成。</p></div>
+              <div class="segmented">
+                <button class="active" data-filter="all">全部</button>
+                <button data-filter="cluster">集群</button>
+                <button data-filter="single">单卡</button>
+                <button data-filter="package">套餐</button>
+              </div>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </div>
+          <div class="two-col tight">
+            <div class="panel">
+              <div class="panel-head"><h3>产品对比</h3><span class="badge">规格 / 价格 / 周期</span></div>
+              <table class="data-table compact-table">
+                <thead><tr><th>产品</th><th>适用场景</th><th>计费方式</th><th>租赁周期</th><th>合同</th></tr></thead>
+                <tbody>
+                  <tr><td>B300 8卡集群租赁</td><td>大模型训练、批量微调</td><td>¥128/小时</td><td>小时/天/月</td><td>自动生成</td></tr>
+                  <tr><td>单卡算力租赁</td><td>模型推理、小规模实验</td><td>¥18/小时</td><td>小时/天</td><td>自动生成</td></tr>
+                  <tr><td>训推一体套餐</td><td>训练 + 推理联动部署</td><td>¥39,800/月</td><td>月/季度</td><td>自动生成</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel order-panel">
+              <div class="panel-head"><h3>在线下单流程</h3><span class="badge ok">4 步完成</span></div>
+              <ol class="step-list">
+                <li><b>选择产品规格</b><span>B300 8卡、单卡、训推一体套餐</span></li>
+                <li><b>确认租赁周期</b><span>按小时、天、月或长期预留</span></li>
+                <li><b>在线支付</b><span>对公转账、线上支付、余额支付</span></li>
+                <li><b>生成租赁合同</b><span>合同编号、资源明细、服务周期自动写入</span></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Usage -->
+        <section class="page" id="usage">
+          <div class="stat-grid compact">
+            <article class="stat-card"><span>平均 GPU 负载</span><strong>76%</strong><em>近 5 分钟</em></article>
+            <article class="stat-card"><span>任务进度均值</span><strong>63%</strong><em>36 个运行任务</em></article>
+            <article class="stat-card"><span>显存占用率</span><strong>71%</strong><em>已分配 5120GB</em></article>
+            <article class="stat-card"><span>资源异常</span><strong>0</strong><em>自动巡检正常</em></article>
+          </div>
+          <div class="page-grid">
+            <div class="panel span-8">
+              <div class="panel-head"><h3>已租赁算力资源状态</h3><span class="badge ok">实时监控</span></div>
+              <div class="resource-board" id="resourceBoard"></div>
+            </div>
+            <div class="panel span-4">
+              <div class="panel-head"><h3>任务运行日志</h3><button class="link-btn" id="addLogBtn">刷新日志</button></div>
+              <div class="log-box" id="logBox"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>使用详情查询</h3><span class="badge">GPU 负载 / 任务进度 / 资源占用率</span></div>
+            <table class="data-table">
+              <thead><tr><th>资源名称</th><th>租赁客户</th><th>GPU负载</th><th>CPU占用</th><th>显存占用</th><th>任务进度</th><th>运行状态</th></tr></thead>
+              <tbody id="usageTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 5. Tasks -->
+        <section class="page" id="tasks">
+          <div class="page-grid">
+            <div class="panel span-5">
+              <div class="panel-head"><h3>提交训练/推理任务</h3><span class="badge">脚本 + 数据集 + 参数</span></div>
+              <form class="stack-form" id="taskForm">
+                <label>任务名称<input required value="BERT 文献分类微调任务" /></label>
+                <label>任务类型<select><option>训练任务</option><option>推理任务</option></select></label>
+                <label>选择算力资源<select><option>B300 8卡集群 A</option><option>单卡推理池 P1</option><option>训推一体套餐 T1</option></select></label>
+                <label>上传任务脚本<input type="file" /></label>
+                <label>上传数据集<input type="file" /></label>
+                <div class="form-grid mini">
+                  <label>精度<select><option>FP16</option><option>FP32</option><option>BF16</option><option>INT8</option></select></label>
+                  <label>迭代次数<input type="number" value="1000" /></label>
+                  <label>批大小<input type="number" value="32" /></label>
+                  <label>学习率<input value="2e-5" /></label>
+                </div>
+                <button class="primary-btn" type="submit">提交任务</button>
+              </form>
+            </div>
+            <div class="panel span-7">
+              <div class="panel-head"><h3>任务管理列表</h3><span class="badge ok">支持暂停 / 重启 / 终止 / 查看结果</span></div>
+              <table class="data-table action-table">
+                <thead><tr><th>任务编号</th><th>任务名称</th><th>类型</th><th>进度</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="taskTable"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>任务结果与运行详情</h3><span class="badge">准确率 / 吞吐量 / 输出路径</span></div>
+            <div class="result-grid">
+              <div><b>LLM 微调任务 #T-1027</b><p>准确率 92.6%，Loss 0.083，输出模型路径：/secure/models/t1027/best.ckpt</p></div>
+              <div><b>图像推理任务 #T-1028</b><p>吞吐量 268 img/s，平均延迟 37ms，输出结果：/secure/results/t1028/</p></div>
+              <div><b>文献分类任务 #T-1029</b><p>Top-5 命中率 96.2%，日志已归档，支持下载运行报告。</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Billing -->
+        <section class="page" id="billing">
+          <div class="stat-grid compact">
+            <article class="stat-card"><span>本月累计费用</span><strong>¥86,420</strong><em>按小时/天/月混合计费</em></article>
+            <article class="stat-card"><span>待支付账单</span><strong>¥34,420</strong><em>2 笔待处理</em></article>
+            <article class="stat-card"><span>已开电子发票</span><strong>¥52,000</strong><em>3 张</em></article>
+            <article class="stat-card"><span>合同金额</span><strong>¥196,800</strong><em>长期预留资源</em></article>
+          </div>
+          <div class="page-grid">
+            <div class="panel span-8">
+              <div class="panel-head"><h3>费用明细与账单</h3><span class="badge">在线支付 / 对公转账 / 电子发票</span></div>
+              <table class="data-table action-table">
+                <thead><tr><th>账单编号</th><th>计费项目</th><th>计费方式</th><th>金额</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="billTable"></tbody>
+              </table>
+            </div>
+            <div class="panel span-4">
+              <div class="panel-head"><h3>结算方式</h3><span class="badge ok">支持多渠道</span></div>
+              <div class="payment-list">
+                <div><b>线上支付</b><p>企业网银、支付宝、微信支付，支付后自动更新账单状态。</p></div>
+                <div><b>对公转账</b><p>上传转账回执，财务审核后生成电子发票。</p></div>
+                <div><b>电子发票</b><p>发票抬头、税号、邮箱自动读取账号资料。</p></div>
+              </div>
+              <button class="primary-btn full-btn" id="invoiceBtn">申请电子发票</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>历史账单查询</h3><span class="badge">按月汇总</span></div>
+            <table class="data-table compact-table">
+              <thead><tr><th>月份</th><th>GPU小时</th><th>存储费用</th><th>任务费用</th><th>合计</th><th>发票状态</th></tr></thead>
+              <tbody>
+                <tr><td>2026-04</td><td>625h</td><td>¥2,180</td><td>¥84,240</td><td>¥86,420</td><td><span class="status warn">部分开具</span></td></tr>
+                <tr><td>2026-03</td><td>488h</td><td>¥1,760</td><td>¥65,540</td><td>¥67,300</td><td><span class="status ok">已开具</span></td></tr>
+                <tr><td>2026-02</td><td>322h</td><td>¥1,080</td><td>¥42,600</td><td>¥43,680</td><td><span class="status ok">已开具</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 7. Demand -->
+        <section class="page" id="demand">
+          <div class="page-grid">
+            <div class="panel span-5">
+              <div class="panel-head"><h3>定制化算力需求申请</h3><span class="badge">长期预留 / 大规模集群</span></div>
+              <p class="section-note">客户可提交大规模集群租赁、长期算力预留、专属网络、专属存储等需求，后台运营人员接收后跟进对接，并反馈方案与报价。</p>
+              <form class="stack-form" id="demandForm">
+                <label>需求类型<select><option>大规模集群租赁</option><option>长期算力预留</option><option>专属推理部署</option><option>混合云算力接入</option></select></label>
+                <label>预计 GPU 数量<input type="number" value="64" /></label>
+                <label>租赁周期<select><option>3 个月</option><option>6 个月</option><option>12 个月</option><option>按项目周期</option></select></label>
+                <label>预算范围<input value="20万 - 50万" /></label>
+                <label>需求说明<textarea>需要 B300 级别 GPU 集群，支持大模型训练、数据加密存储、专属网络隔离和运维支持。</textarea></label>
+                <button class="primary-btn" type="submit">提交需求申请</button>
+              </form>
+            </div>
+            <div class="panel span-7">
+              <div class="panel-head"><h3>需求跟进进度</h3><span class="badge ok">运营人员对接</span></div>
+              <div class="timeline" id="demandTimeline">
+                <div class="timeline-item done"><b>需求提交</b><p>客户已提交 64 卡 B300 集群租赁需求。</p><span>2026-04-27 10:30</span></div>
+                <div class="timeline-item done"><b>运营受理</b><p>后台运营人员已接收，正在核算可用资源。</p><span>2026-04-27 10:42</span></div>
+                <div class="timeline-item active"><b>方案报价</b><p>根据租赁周期、GPU数量、存储和安全策略生成方案。</p><span>进行中</span></div>
+                <div class="timeline-item"><b>合同确认</b><p>客户确认报价后自动生成正式租赁合同。</p><span>待处理</span></div>
+              </div>
+              <table class="data-table compact-table">
+                <thead><tr><th>申请编号</th><th>需求类型</th><th>规模</th><th>报价状态</th><th>跟进人</th><th>下一步</th></tr></thead>
+                <tbody>
+                  <tr><td>D-24042701</td><td>大规模集群租赁</td><td>64 卡</td><td><span class="status warn">报价中</span></td><td>运营-李工</td><td>发送方案</td></tr>
+                  <tr><td>D-24042608</td><td>长期算力预留</td><td>16 卡 / 12个月</td><td><span class="status ok">已报价</span></td><td>运营-张工</td><td>等待确认</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. Message -->
+        <section class="page" id="message">
+          <div class="page-grid">
+            <div class="panel span-4">
+              <div class="panel-head"><h3>消息通知配置</h3><span class="badge">短信 + 站内信</span></div>
+              <div class="check-list large">
+                <label><input type="checkbox" checked /> 算力分配完成通知</label>
+                <label><input type="checkbox" checked /> 任务运行状态通知</label>
+                <label><input type="checkbox" checked /> 费用提醒通知</label>
+                <label><input type="checkbox" checked /> 故障通知</label>
+                <label><input type="checkbox" checked /> 短信提醒</label>
+                <label><input type="checkbox" checked /> 站内信提醒</label>
+              </div>
+              <button class="primary-btn full-btn" id="saveMsgCfg">保存通知配置</button>
+            </div>
+            <div class="panel span-8">
+              <div class="panel-head"><h3>通知中心</h3><button class="secondary-btn small" id="markAllRead">全部标为已读</button></div>
+              <div class="message-list" id="messageList"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>通知发送记录</h3><span class="badge ok">保障客户及时知晓</span></div>
+            <table class="data-table compact-table">
+              <thead><tr><th>发送时间</th><th>通知类型</th><th>接收人</th><th>短信</th><th>站内信</th><th>状态</th></tr></thead>
+              <tbody>
+                <tr><td>10:25</td><td>算力分配完成</td><td>企业管理员</td><td>已发送</td><td>已发送</td><td><span class="status ok">成功</span></td></tr>
+                <tr><td>09:42</td><td>费用提醒</td><td>财务联系人</td><td>已发送</td><td>已发送</td><td><span class="status ok">成功</span></td></tr>
+                <tr><td>08:20</td><td>任务状态</td><td>研发联系人</td><td>未启用</td><td>已发送</td><td><span class="status ok">成功</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 9. Support -->
+        <section class="page" id="support">
+          <div class="page-grid">
+            <div class="panel span-5">
+              <div class="panel-head"><h3>提交售后需求 / 意见反馈</h3><span class="badge">专属客服</span></div>
+              <form class="stack-form" id="supportForm">
+                <label>问题类型<select><option>任务报错</option><option>算力不稳定</option><option>费用账单问题</option><option>合同与发票问题</option><option>其他意见反馈</option></select></label>
+                <label>关联任务或资源<input value="T-1027 / B300 集群 A" /></label>
+                <label>紧急程度<select><option>高</option><option>中</option><option>低</option></select></label>
+                <label>问题描述<textarea>训练任务在第 820 次迭代后速度下降，请协助排查 GPU 负载和存储读取情况。</textarea></label>
+                <button class="primary-btn" type="submit">提交售后工单</button>
+              </form>
+            </div>
+            <div class="panel span-7">
+              <div class="panel-head"><h3>售后处理进度</h3><span class="badge ok">平均响应 18 分钟</span></div>
+              <table class="data-table action-table">
+                <thead><tr><th>工单号</th><th>问题类型</th><th>专属客服</th><th>进度</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="supportTable"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>常见问题与处理建议</h3><span class="badge">降低客户使用门槛</span></div>
+            <div class="faq-grid">
+              <div><b>任务报错如何处理？</b><p>查看任务运行日志，确认脚本依赖、数据路径、显存使用是否正常，必要时提交售后工单。</p></div>
+              <div><b>算力不稳定怎么办？</b><p>检查 GPU 负载曲线和节点状态，平台会自动巡检异常并通知运维处理。</p></div>
+              <div><b>账单费用如何核对？</b><p>进入费用查询与结算页面，可按小时/天/月查看明细并导出账单。</p></div>
+              <div><b>如何对接专属客服？</b><p>VIP 客户可在工单中选择专属客服，系统会同步发送站内信与短信提醒。</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. Security -->
+        <section class="page" id="security">
+          <div class="hero-panel slim">
+            <div class="hero-copy">
+              <span class="eyebrow">数据安全管理</span>
+              <h3>客户数据集、任务脚本与运行结果全流程加密保护</h3>
+              <p>对客户上传的数据集、任务脚本进行加密存储，使用访问控制、操作审计、隔离存储、脱敏展示等措施，确保仅客户可查看和操作，保障客户数据隐私并符合数据安全法规要求。</p>
+            </div>
+            <div class="security-metrics">
+              <article><strong>AES-256</strong><span>存储加密</span></article>
+              <article><strong>100%</strong><span>操作审计</span></article>
+              <article><strong>3级</strong><span>权限隔离</span></article>
+            </div>
+          </div>
+          <div class="page-grid">
+            <div class="panel span-6">
+              <div class="panel-head"><h3>安全策略配置</h3><span class="badge ok">已启用</span></div>
+              <div class="check-list large">
+                <label><input type="checkbox" checked /> 上传数据集自动加密存储</label>
+                <label><input type="checkbox" checked /> 任务脚本加密保存，仅客户可查看</label>
+                <label><input type="checkbox" checked /> 运行结果按客户隔离存储</label>
+                <label><input type="checkbox" checked /> 管理员访问需授权审批</label>
+                <label><input type="checkbox" checked /> 关键操作写入审计日志</label>
+                <label><input type="checkbox" /> 数据到期自动销毁</label>
+              </div>
+            </div>
+            <div class="panel span-6">
+              <div class="panel-head"><h3>数据资产清单</h3><span class="badge">数据集 / 脚本 / 结果</span></div>
+              <table class="data-table compact-table">
+                <thead><tr><th>资产名称</th><th>类型</th><th>加密状态</th><th>权限</th><th>审计</th></tr></thead>
+                <tbody>
+                  <tr><td>literature_train_v3.zip</td><td>数据集</td><td><span class="status ok">已加密</span></td><td>客户可见</td><td>已记录</td></tr>
+                  <tr><td>finetune_bert.py</td><td>任务脚本</td><td><span class="status ok">已加密</span></td><td>客户可见</td><td>已记录</td></tr>
+                  <tr><td>result_t1027.json</td><td>运行结果</td><td><span class="status ok">已加密</span></td><td>客户可见</td><td>已记录</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>操作审计日志</h3><span class="badge">合规留痕</span></div>
+            <table class="data-table compact-table">
+              <thead><tr><th>时间</th><th>操作人</th><th>操作内容</th><th>对象</th><th>结果</th><th>来源IP</th></tr></thead>
+              <tbody>
+                <tr><td>2026-04-27 10:20</td><td>企业管理员</td><td>上传数据集</td><td>literature_train_v3.zip</td><td><span class="status ok">成功</span></td><td>120.11.28.7</td></tr>
+                <tr><td>2026-04-27 10:22</td><td>企业管理员</td><td>提交任务脚本</td><td>finetune_bert.py</td><td><span class="status ok">成功</span></td><td>120.11.28.7</td></tr>
+                <tr><td>2026-04-27 10:41</td><td>客服-李工</td><td>查看工单</td><td>S-24042701</td><td><span class="status ok">授权成功</span></td><td>10.18.6.31</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <div class="modal-mask" id="modalMask">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modalTitle">在线下单</h3>
+        <button id="closeModal">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">操作成功</div>
+  <script src="script.js"></script>
+</body>
+</html>
