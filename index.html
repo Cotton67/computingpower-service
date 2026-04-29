@@ -1,1102 +1,153 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机房运维管理系统</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>算力服务平台原型展示</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #155eef, #0f3fa8);
+      color: #fff;
+      padding: 48px 8%;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 17px;
+      line-height: 1.8;
+      opacity: 0.95;
+      max-width: 900px;
+    }
+
+    main {
+      padding: 36px 8%;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #155eef;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      background: #155eef;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      background: #0f3fa8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 8%;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- 侧边栏 -->
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-icon">🖥️</div>
-                <h2>机房运维管理系统</h2>
-            </div>
-            <nav class="nav-menu">
-                <div class="nav-item active" data-tab="overview">
-                    <div class="nav-icon">📊</div>
-                    <span>系统概览</span>
-                </div>
-                <div class="nav-item" data-tab="equipment">
-                    <div class="nav-icon">🖥️</div>
-                    <span>设备管理</span>
-                </div>
-                <div class="nav-item" data-tab="cooling">
-                    <div class="nav-icon">❄️</div>
-                    <span>液冷系统</span>
-                </div>
-                <div class="nav-item" data-tab="power">
-                    <div class="nav-icon">⚡</div>
-                    <span>供电系统</span>
-                </div>
-                <div class="nav-item" data-tab="environment">
-                    <div class="nav-icon">🌡️</div>
-                    <span>环境监控</span>
-                </div>
-                <div class="nav-item" data-tab="workorders">
-                    <div class="nav-icon">📋</div>
-                    <span>运维工单</span>
-                </div>
-                <div class="nav-item" data-tab="inspection">
-                    <div class="nav-icon">🔍</div>
-                    <span>巡检管理</span>
-                </div>
-                <div class="nav-item" data-tab="maintenance">
-                    <div class="nav-icon">🔧</div>
-                    <span>故障维修</span>
-                </div>
-                <div class="nav-item" data-tab="security">
-                    <div class="nav-icon">🔐</div>
-                    <span>安全管理</span>
-                </div>
-                <div class="nav-item" data-tab="logs">
-                    <div class="nav-icon">📝</div>
-                    <span>运维日志</span>
-                </div>
-            </nav>
-        </aside>
+  <header>
+    <h1>算力服务平台原型展示</h1>
+    <p>
+      本页面用于统一展示各小组成员提交的 HTML + CSS + JS 前端原型页面。
+      点击下方入口可以查看不同系统模块的页面效果。
+    </p>
+  </header>
 
-        <!-- 主内容区 -->
-        <main class="main-content">
-            <!-- 顶部栏 -->
-            <header class="header">
-                <h1 id="page-title">系统概览</h1>
-                <div class="header-actions">
-                    <button class="btn btn-primary" onclick="refreshData()">
-                        <span class="btn-icon">🔄</span> 刷新数据
-                    </button>
-                    <div class="system-info">
-                        <span class="current-time" id="current-time"></span>
-                        <span class="current-date" id="current-date"></span>
-                    </div>
-                </div>
-            </header>
+  <main>
+    <h2 class="section-title">系统页面入口</h2>
 
-            <!-- 概览页面 -->
-            <div class="tab-content active" id="overview">
-                <!-- 统计卡片 -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon devices-icon">🖥️</div>
-                            <span class="stat-label">设备总数</span>
-                        </div>
-                        <div class="stat-value" id="total-equipment">0</div>
-                        <div class="stat-change">
-                            <span class="change-indicator normal">正常运行</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon alert-icon">⚠️</div>
-                            <span class="stat-label">告警数量</span>
-                        </div>
-                        <div class="stat-value alert-value" id="total-alerts">0</div>
-                        <div class="stat-change">
-                            <span class="change-indicator urgent">需处理</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon workorder-icon">📋</div>
-                            <span class="stat-label">待处理工单</span>
-                        </div>
-                        <div class="stat-value warning-value" id="pending-workorders">0</div>
-                        <div class="stat-change">
-                            <span class="change-indicator attention">需关注</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon status-icon">✅</div>
-                            <span class="stat-label">系统状态</span>
-                        </div>
-                        <div class="stat-value success-value" id="system-status">正常</div>
-                        <div class="stat-change">
-                            <span class="change-indicator good">运行良好</span>
-                        </div>
-                    </div>
-                </div>
+    <div class="grid">
+      <div class="card">
+        <h2>系统一：算力资源管理页面</h2>
+        <p>展示算力资源管理、资源状态、节点信息等相关页面。</p>
+        <a href="./sys1-cyf/index.html">查看页面</a>
+      </div>
 
-                <!-- 液冷系统监控 -->
-                <section class="monitor-section">
-                    <h2 class="section-title">液冷系统监控</h2>
-                    <div class="cooling-grid">
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-01</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cdu1-in-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cdu1-out-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cdu1-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cdu1-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cdu1-leak">正常</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-02</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cdu2-in-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cdu2-out-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cdu2-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cdu2-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cdu2-leak">正常</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-03</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cdu3-in-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cdu3-out-temp">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cdu3-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cdu3-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cdu3-leak">正常</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="card">
+        <h2>系统二：算力任务调度页面</h2>
+        <p>展示任务提交、任务调度、任务执行状态等相关页面。</p>
+        <a href="./sys2-sfy/index.html">查看页面</a>
+      </div>
 
-                <!-- 供电系统监控 -->
-                <section class="monitor-section">
-                    <h2 class="section-title">供电系统监控</h2>
-                    <div class="power-grid">
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>总配电</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="main-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="main-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="main-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>PDU-A路</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="pdu-a-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="pdu-a-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="pdu-a-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>PDU-B路</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="pdu-b-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="pdu-b-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="pdu-b-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="card">
+        <h2>系统三：客户算力租赁服务平台</h2>
+        <p>展示算力租赁、任务提交、状态查询、费用结算等客户侧功能。</p>
+        <a href="./sys3-hmr/index.html">查看页面</a>
+      </div>
 
-                <!-- 环境监控 -->
-                <section class="monitor-section">
-                    <h2 class="section-title">环境监控</h2>
-                    <div class="environment-grid">
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>温度</h3>
-                                <span class="env-icon">🌡️</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="env-temp">--</span>
-                                    <span class="env-unit">°C</span>
-                                </div>
-                                <div class="env-threshold">阈值: ≤25°C</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>湿度</h3>
-                                <span class="env-icon">💧</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="env-humidity">--</span>
-                                    <span class="env-unit">%</span>
-                                </div>
-                                <div class="env-threshold">范围: 40-60%</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>洁净度</h3>
-                                <span class="env-icon">✨</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="env-cleanliness">--</span>
-                                </div>
-                                <div class="env-threshold">标准: ISO 6</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>安全状态</h3>
-                                <span class="env-icon">🔒</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-sensors">
-                                    <div class="env-sensor">
-                                        <span>烟感</span>
-                                        <span class="sensor-status normal" id="sensor-smoke">正常</span>
-                                    </div>
-                                    <div class="env-sensor">
-                                        <span>门禁</span>
-                                        <span class="sensor-status normal" id="sensor-access">正常</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="card">
+        <h2>系统四：算力计费结算管理系统</h2>
+        <p>展示计费规则、自动计费、账单管理、对账结算等功能。</p>
+        <a href="./sys4-lmf/index.html">查看页面</a>
+      </div>
 
-                <!-- 运维工单 -->
-                <section class="monitor-section">
-                    <h2 class="section-title">运维工单</h2>
-                    <div class="workorder-list" id="workorder-list"></div>
-                </section>
-            </div>
+      <div class="card">
+        <h2>系统五：运维监控管理页面</h2>
+        <p>展示运行监控、告警管理、服务状态、系统日志等功能。</p>
+        <a href="./sys5-ltc-1/index.html">查看页面</a>
+      </div>
 
-            <!-- 设备管理页面 -->
-            <div class="tab-content" id="equipment">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="showModal('equipment-modal')">
-                        <span class="btn-icon">➕</span> 添加设备
-                    </button>
-                    <input type="text" class="search-input" placeholder="搜索设备..." id="equipment-search" onkeyup="searchEquipment()">
-                    <select class="filter-select" id="equipment-filter" onchange="filterEquipment()">
-                        <option value="all">全部类型</option>
-                        <option value="server">服务器</option>
-                        <option value="switch">交换机</option>
-                        <option value="cdud">CDU</option>
-                        <option value="pdu">PDU</option>
-                    </select>
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>设备ID</th>
-                                <th>设备名称</th>
-                                <th>类型</th>
-                                <th>型号</th>
-                                <th>SN码</th>
-                                <th>位置</th>
-                                <th>安装时间</th>
-                                <th>质保期限</th>
-                                <th>状态</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody id="equipment-table-body"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 液冷系统页面 -->
-            <div class="tab-content" id="cooling">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="refreshData()">
-                        <span class="btn-icon">🔄</span> 刷新数据
-                    </button>
-                </div>
-                <section class="monitor-section">
-                    <h2 class="section-title">液冷系统监控</h2>
-                    <div class="cooling-grid">
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-01</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu1-in">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu1-out">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cooling-cdu1-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cooling-cdu1-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cooling-cdu1-leak">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷板状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu1-coldplate">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷媒状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu1-coolant">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">泵速</span>
-                                    <span class="monitor-value" id="cooling-cdu1-pump">--</span>
-                                    <span class="monitor-unit">RPM</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">液位</span>
-                                    <span class="monitor-value" id="cooling-cdu1-level">--</span>
-                                    <span class="monitor-unit">%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-02</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu2-in">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu2-out">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cooling-cdu2-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cooling-cdu2-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cooling-cdu2-leak">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷板状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu2-coldplate">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷媒状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu2-coolant">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">泵速</span>
-                                    <span class="monitor-value" id="cooling-cdu2-pump">--</span>
-                                    <span class="monitor-unit">RPM</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">液位</span>
-                                    <span class="monitor-value" id="cooling-cdu2-level">--</span>
-                                    <span class="monitor-unit">%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="monitor-card">
-                            <div class="monitor-header">
-                                <h3>CDU-03</h3>
-                                <span class="monitor-status online">●</span>
-                            </div>
-                            <div class="monitor-body">
-                                <div class="monitor-row">
-                                    <span class="monitor-label">进水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu3-in">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">回水温度</span>
-                                    <span class="monitor-value" id="cooling-cdu3-out">--</span>
-                                    <span class="monitor-unit">°C</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">流量</span>
-                                    <span class="monitor-value" id="cooling-cdu3-flow">--</span>
-                                    <span class="monitor-unit">L/min</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">压力</span>
-                                    <span class="monitor-value" id="cooling-cdu3-pressure">--</span>
-                                    <span class="monitor-unit">bar</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">漏液检测</span>
-                                    <span class="monitor-value normal" id="cooling-cdu3-leak">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷板状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu3-coldplate">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">冷媒状态</span>
-                                    <span class="monitor-value normal" id="cooling-cdu3-coolant">正常</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">泵速</span>
-                                    <span class="monitor-value" id="cooling-cdu3-pump">--</span>
-                                    <span class="monitor-unit">RPM</span>
-                                </div>
-                                <div class="monitor-row">
-                                    <span class="monitor-label">液位</span>
-                                    <span class="monitor-value" id="cooling-cdu3-level">--</span>
-                                    <span class="monitor-unit">%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- 供电系统页面 -->
-            <div class="tab-content" id="power">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="refreshData()">
-                        <span class="btn-icon">🔄</span> 刷新数据
-                    </button>
-                </div>
-                <section class="monitor-section">
-                    <h2 class="section-title">供电系统监控</h2>
-                    <div class="power-grid">
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>总配电</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="detail-main-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="detail-main-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="detail-main-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>PDU-A路</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="detail-pdu-a-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="detail-pdu-a-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="detail-pdu-a-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="power-card">
-                            <div class="power-header">
-                                <h3>PDU-B路</h3>
-                                <span class="power-status online">●</span>
-                            </div>
-                            <div class="power-body">
-                                <div class="power-row">
-                                    <span class="power-label">电压</span>
-                                    <span class="power-value" id="detail-pdu-b-voltage">--</span>
-                                    <span class="power-unit">V</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">电流</span>
-                                    <span class="power-value" id="detail-pdu-b-current">--</span>
-                                    <span class="power-unit">A</span>
-                                </div>
-                                <div class="power-row">
-                                    <span class="power-label">功率</span>
-                                    <span class="power-value" id="detail-pdu-b-power">--</span>
-                                    <span class="power-unit">kW</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="monitor-section">
-                    <h2 class="section-title">服务器级电力监控</h2>
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>服务器ID</th>
-                                    <th>电压(V)</th>
-                                    <th>电流(A)</th>
-                                    <th>功率(kW)</th>
-                                    <th>状态</th>
-                                </tr>
-                            </thead>
-                            <tbody id="server-power-body"></tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section class="monitor-section">
-                    <h2 class="section-title">电力告警日志</h2>
-                    <div class="alert-log-list" id="power-alert-log"></div>
-                </section>
-            </div>
-
-            <!-- 环境监控页面 -->
-            <div class="tab-content" id="environment">
-                <section class="monitor-section">
-                    <h2 class="section-title">环境监控</h2>
-                    <div class="environment-grid">
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>温度</h3>
-                                <span class="env-icon">🌡️</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="detail-env-temp">--</span>
-                                    <span class="env-unit">°C</span>
-                                </div>
-                                <div class="env-threshold">阈值: ≤25°C</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>湿度</h3>
-                                <span class="env-icon">💧</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="detail-env-humidity">--</span>
-                                    <span class="env-unit">%</span>
-                                </div>
-                                <div class="env-threshold">范围: 40-60%</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>洁净度</h3>
-                                <span class="env-icon">✨</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-main">
-                                    <span class="env-value" id="detail-env-cleanliness">--</span>
-                                </div>
-                                <div class="env-threshold">标准: ISO 6</div>
-                            </div>
-                        </div>
-                        <div class="env-card">
-                            <div class="env-header">
-                                <h3>安全状态</h3>
-                                <span class="env-icon">🔒</span>
-                            </div>
-                            <div class="env-body">
-                                <div class="env-sensors">
-                                    <div class="env-sensor">
-                                        <span>烟感</span>
-                                        <span class="sensor-status normal" id="detail-sensor-smoke">正常</span>
-                                    </div>
-                                    <div class="env-sensor">
-                                        <span>门禁</span>
-                                        <span class="sensor-status normal" id="detail-sensor-access">正常</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- 运维工单页面 -->
-            <div class="tab-content" id="workorders">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="showModal('workorder-modal')">
-                        <span class="btn-icon">➕</span> 创建工单
-                    </button>
-                </div>
-                <div class="workorder-grid">
-                    <div class="workorder-column pending">
-                        <div class="column-header">
-                            <h4>待处理</h4>
-                            <span class="column-count" id="pending-column-count">0</span>
-                        </div>
-                        <div class="workorder-cards" id="pending-workorders-list"></div>
-                    </div>
-                    <div class="workorder-column processing">
-                        <div class="column-header">
-                            <h4>处理中</h4>
-                            <span class="column-count" id="processing-column-count">0</span>
-                        </div>
-                        <div class="workorder-cards" id="processing-workorders-list"></div>
-                    </div>
-                    <div class="workorder-column completed">
-                        <div class="column-header">
-                            <h4>已完成</h4>
-                            <span class="column-count" id="completed-column-count">0</span>
-                        </div>
-                        <div class="workorder-cards" id="completed-workorders-list"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 巡检管理页面 -->
-            <div class="tab-content" id="inspection">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="showModal('inspection-modal')">
-                        <span class="btn-icon">➕</span> 新增巡检计划
-                    </button>
-                </div>
-                <div class="inspection-list" id="inspection-list"></div>
-            </div>
-
-            <!-- 故障维修页面 -->
-            <div class="tab-content" id="maintenance">
-                <div class="page-toolbar">
-                    <button class="btn btn-primary" onclick="showModal('maintenance-modal')">
-                        <span class="btn-icon">➕</span> 报修
-                    </button>
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>维修ID</th>
-                                <th>设备名称</th>
-                                <th>故障类型</th>
-                                <th>故障描述</th>
-                                <th>报修时间</th>
-                                <th>状态</th>
-                                <th>维修费用</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody id="maintenance-table-body"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 安全管理页面 -->
-            <div class="tab-content" id="security">
-                <div class="security-stats">
-                    <div class="security-card">
-                        <div class="security-icon">👥</div>
-                        <h4>当前在线</h4>
-                        <p class="security-value" id="online-users">0</p>
-                    </div>
-                    <div class="security-card">
-                        <div class="security-icon">🚪</div>
-                        <h4>今日进入</h4>
-                        <p class="security-value" id="today-access">0</p>
-                    </div>
-                    <div class="security-card">
-                        <div class="security-icon">⚠️</div>
-                        <h4>异常访问</h4>
-                        <p class="security-value alert" id="abnormal-access">0</p>
-                    </div>
-                </div>
-                <div class="access-logs-section">
-                    <h3>进出记录</h3>
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>时间</th>
-                                    <th>人员</th>
-                                    <th>角色</th>
-                                    <th>事件</th>
-                                    <th>事由</th>
-                                </tr>
-                            </thead>
-                            <tbody id="access-table-body"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 运维日志页面 -->
-            <div class="tab-content" id="logs">
-                <div class="page-toolbar">
-                    <button class="btn" onclick="exportLogs()">
-                        <span class="btn-icon">📥</span> 导出日志
-                    </button>
-                    <input type="date" class="date-input" id="log-date" onchange="filterLogs()">
-                    <select class="filter-select" id="log-type" onchange="filterLogs()">
-                        <option value="all">全部类型</option>
-                        <option value="operation">操作日志</option>
-                        <option value="alert">告警日志</option>
-                        <option value="equipment">设备日志</option>
-                    </select>
-                </div>
-                <div class="logs-container">
-                    <div class="log-list" id="log-list"></div>
-                </div>
-            </div>
-        </main>
+      <div class="card">
+        <h2>系统六：综合管理页面</h2>
+        <p>展示后台管理、数据统计、用户管理、业务分析等功能。</p>
+        <a href="./sys6-kdh/index.html">查看页面</a>
+      </div>
     </div>
+  </main>
 
-    <!-- 设备添加弹窗 -->
-    <div class="modal" id="equipment-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>添加设备</h3>
-                <button class="close-btn" onclick="closeModal('equipment-modal')">&times;</button>
-            </div>
-            <form id="equipment-form" onsubmit="saveEquipment(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>设备名称</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>设备类型</label>
-                        <select name="type" required>
-                            <option value="server">服务器</option>
-                            <option value="switch">交换机</option>
-                            <option value="cdud">CDU</option>
-                            <option value="pdu">PDU</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>型号</label>
-                        <input type="text" name="model" required>
-                    </div>
-                    <div class="form-group">
-                        <label>SN码</label>
-                        <input type="text" name="sn" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>位置</label>
-                        <input type="text" name="location" required>
-                    </div>
-                    <div class="form-group">
-                        <label>安装时间</label>
-                        <input type="date" name="installDate" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>质保期限</label>
-                        <input type="date" name="warrantyDate" required>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">保存</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 设备编辑弹窗 -->
-    <div class="modal" id="equipment-edit-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>编辑设备</h3>
-                <button class="close-btn" onclick="closeModal('equipment-edit-modal')">&times;</button>
-            </div>
-            <form id="equipment-edit-form" onsubmit="updateEquipment(event)">
-                <input type="hidden" name="edit-id">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>设备名称</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>设备类型</label>
-                        <select name="type" required>
-                            <option value="server">服务器</option>
-                            <option value="switch">交换机</option>
-                            <option value="cdud">CDU</option>
-                            <option value="pdu">PDU</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>型号</label>
-                        <input type="text" name="model" required>
-                    </div>
-                    <div class="form-group">
-                        <label>SN码</label>
-                        <input type="text" name="sn" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>位置</label>
-                        <input type="text" name="location" required>
-                    </div>
-                    <div class="form-group">
-                        <label>安装时间</label>
-                        <input type="date" name="installDate" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>质保期限</label>
-                        <input type="date" name="warrantyDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label>状态</label>
-                        <select name="status" required>
-                            <option value="online">在线</option>
-                            <option value="offline">离线</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">更新</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 工单创建弹窗 -->
-    <div class="modal" id="workorder-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>创建工单</h3>
-                <button class="close-btn" onclick="closeModal('workorder-modal')">&times;</button>
-            </div>
-            <form id="workorder-form" onsubmit="saveWorkOrder(event)">
-                <div class="form-group">
-                    <label>工单标题</label>
-                    <input type="text" name="title" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>优先级</label>
-                        <select name="priority" required>
-                            <option value="high">高</option>
-                            <option value="medium">中</option>
-                            <option value="low">低</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>负责人</label>
-                        <input type="text" name="assignee" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>描述</label>
-                    <textarea name="description" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">创建</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 巡检计划弹窗 -->
-    <div class="modal" id="inspection-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>新增巡检计划</h3>
-                <button class="close-btn" onclick="closeModal('inspection-modal')">&times;</button>
-            </div>
-            <form id="inspection-form" onsubmit="saveInspection(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>巡检名称</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>巡检类型</label>
-                        <select name="type" required>
-                            <option value="daily">日常巡检</option>
-                            <option value="weekly">周巡检</option>
-                            <option value="monthly">月巡检</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>责任人</label>
-                        <input type="text" name="person" required>
-                    </div>
-                    <div class="form-group">
-                        <label>频次</label>
-                        <select name="frequency" required>
-                            <option value="once">单次</option>
-                            <option value="daily">每日</option>
-                            <option value="weekly">每周</option>
-                            <option value="monthly">每月</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>巡检内容</label>
-                    <textarea name="content" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">创建</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 故障报修弹窗 -->
-    <div class="modal" id="maintenance-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>报修</h3>
-                <button class="close-btn" onclick="closeModal('maintenance-modal')">&times;</button>
-            </div>
-            <form id="maintenance-form" onsubmit="saveMaintenance(event)">
-                <div class="form-group">
-                    <label>设备名称</label>
-                    <select name="equipment" id="maintenance-equipment" required>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>故障类型</label>
-                        <select name="type" required>
-                            <option value="gpu">GPU损坏</option>
-                            <option value="server">服务器宕机</option>
-                            <option value="switch">交换机故障</option>
-                            <option value="other">其他</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>故障描述</label>
-                    <textarea name="description" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">提交</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+  <footer>
+    computingpower-service · GitHub Pages 前端原型展示
+  </footer>
 </body>
 </html>
