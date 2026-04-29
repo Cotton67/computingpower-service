@@ -1,26 +1,153 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>算力资源调度管理系统</title>
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/modules.css">
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>算力服务平台原型展示</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #155eef, #0f3fa8);
+      color: #fff;
+      padding: 48px 8%;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 17px;
+      line-height: 1.8;
+      opacity: 0.95;
+      max-width: 900px;
+    }
+
+    main {
+      padding: 36px 8%;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #155eef;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      background: #155eef;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      background: #0f3fa8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 8%;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar" id="sidebar"></aside>
-    <div class="main-area">
-      <header class="header" id="header"></header>
-      <main class="content" id="main-content"></main>
+  <header>
+    <h1>算力服务平台原型展示</h1>
+    <p>
+      本页面用于统一展示各小组成员提交的 HTML + CSS + JS 前端原型页面。
+      点击下方入口可以查看不同系统模块的页面效果。
+    </p>
+  </header>
+
+  <main>
+    <h2 class="section-title">系统页面入口</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h2>系统一：算力资源管理页面</h2>
+        <p>展示算力资源管理、资源状态、节点信息等相关页面。</p>
+        <a href="./sys1-cyf/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统二：算力任务调度页面</h2>
+        <p>展示任务提交、任务调度、任务执行状态等相关页面。</p>
+        <a href="./sys2-sfy/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统三：客户算力租赁服务平台</h2>
+        <p>展示算力租赁、任务提交、状态查询、费用结算等客户侧功能。</p>
+        <a href="./sys3-hmr/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统四：算力计费结算管理系统</h2>
+        <p>展示计费规则、自动计费、账单管理、对账结算等功能。</p>
+        <a href="./sys4-lmf/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统五：运维监控管理页面</h2>
+        <p>展示运行监控、告警管理、服务状态、系统日志等功能。</p>
+        <a href="./sys5-ltc-1/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统六：综合管理页面</h2>
+        <p>展示后台管理、数据统计、用户管理、业务分析等功能。</p>
+        <a href="./sys6-kdh/index.html">查看页面</a>
+      </div>
     </div>
-  </div>
-  <div class="toast-container" id="toast-container"></div>
-  <div id="modal-root"></div>
-  <script type="module" src="js/app.js"></script>
+  </main>
+
+  <footer>
+    computingpower-service · GitHub Pages 前端原型展示
+  </footer>
 </body>
 </html>
