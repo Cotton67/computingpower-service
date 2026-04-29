@@ -1,0 +1,196 @@
+/* Module-specific styles */
+
+/* M1 Panorama */
+.node-highlight-idle { background: rgba(103,194,58,0.06); }
+.node-highlight-overloaded { background: rgba(245,108,108,0.06); }
+
+/* M2 Allocation */
+.resource-pool-chart { height: 300px; }
+
+.allocation-specs {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+.alloc-mode-toggle {
+  display: flex;
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.alloc-mode-toggle button {
+  padding: 6px 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: var(--font-size-sm);
+}
+
+.alloc-mode-toggle button.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* M3 Scheduling */
+.task-priority-bar {
+  display: flex;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.task-priority-bar > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.priority-1 { background: #909399; }
+.priority-2 { background: #409eff; }
+.priority-3 { background: #e6a23c; }
+.priority-4 { background: #f97316; }
+.priority-5 { background: #f56c6c; }
+
+/* M4 Elastic */
+.billing-preview {
+  background: #f5f7fa;
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.billing-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  font-size: var(--font-size-sm);
+}
+
+.billing-row.total {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-sm);
+  margin-top: var(--space-sm);
+  font-weight: 600;
+  color: var(--accent-yellow);
+}
+
+/* M5 Load Balance */
+.load-bar {
+  height: 20px;
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+  background: #ebeef5;
+}
+
+.load-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.load-bar-label {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* M6 Health */
+.health-grid-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.temp-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.temp-indicator.normal { color: var(--accent-green); }
+.temp-indicator.warning { color: var(--accent-yellow); }
+.temp-indicator.danger { color: var(--accent-red); }
+
+/* M7 Statistics */
+.period-selector {
+  display: flex;
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.period-selector button {
+  padding: 6px 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: var(--font-size-sm);
+}
+
+.period-selector button.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.view-toggle {
+  display: flex;
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.view-toggle button {
+  padding: 6px 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: var(--font-size-sm);
+}
+
+.view-toggle button.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* M8 Reservation */
+.reservation-upcoming {
+  border-left: 3px solid var(--accent-yellow);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.gantt-chart { height: 300px; }
+
+/* Utility */
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-xs { font-size: var(--font-size-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
