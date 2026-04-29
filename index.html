@@ -12,8 +12,12 @@
     <aside class="sidebar">
       <div class="brand">
         <div class="brand-icon">KG</div>
-        <div><h1>算力性能监测与优化系统</h1><p>Computing Performance Ops</p></div>
+        <div>
+          <h1>算力性能监测与优化系统</h1>
+          <p>Computing Performance Ops</p>
+        </div>
       </div>
+
       <div class="menu-title">运维辅助功能菜单</div>
       <nav class="menu" id="menu">
         <button class="menu-item active" data-page="dashboard"><span>1</span>性能监测驾驶舱</button>
@@ -27,34 +31,248 @@
         <button class="menu-item" data-page="tracking"><span>9</span>优化效果跟踪</button>
         <button class="menu-item" data-page="benchmark"><span>10</span>行业性能对标</button>
       </nav>
-      <div class="status-card"><div class="dot"></div><div><strong>服务状态正常</strong><p>GPU、网络、任务调度在线</p></div></div>
+
+      <div class="status-card">
+        <div class="dot"></div>
+        <div>
+          <strong>服务状态正常</strong>
+          <p>GPU、网络、任务调度在线</p>
+        </div>
+      </div>
     </aside>
+
     <main class="main">
       <header class="topbar">
-        <div><h2 id="pageTitle">性能监测驾驶舱</h2><p id="pageDesc">面向运维人员的一站式算力性能监测、诊断与优化平台。</p></div>
-        <div class="top-actions"><div class="search">搜索节点、任务、告警、报告...</div><button class="msg-btn">消息 <b>4</b></button><button class="login-btn">登录 / 注册</button><div class="avatar">A</div></div>
+        <div>
+          <h2 id="pageTitle">性能监测驾驶舱</h2>
+          <p id="pageDesc">面向运维人员的一站式算力性能监测、诊断与优化平台。</p>
+        </div>
+        <div class="top-actions">
+          <div class="search">搜索节点、任务、告警、报告...</div>
+          <button class="msg-btn">消息 <b>4</b></button>
+          <button class="login-btn">登录 / 注册</button>
+          <div class="avatar">A</div>
+        </div>
       </header>
+
       <section id="pageContainer" class="content"></section>
     </main>
   </div>
 
   <template id="dashboardPage">
     <div class="hero-grid">
-      <div class="hero-card"><div class="crumb">系统六 · 算力性能监测与优化系统（运维辅助软件）</div><h1>算力性能监测、瓶颈诊断、优化建议一站式平台</h1><p>平台面向算力运维场景，提供实时指标监测、任务性能分析、性能告警、硬件校准、优化效果跟踪与行业对标能力，提升算力利用率与任务运行效率。</p><div class="hero-actions"><button data-jump="realtime">查看实时监测</button><button class="secondary" data-jump="diagnosis">生成诊断报告</button></div></div>
-      <div class="flow-card"><h3>性能优化流程图</h3><div class="flow"><div class="bubble b1">实时监测</div><div class="bubble b2">瓶颈诊断</div><div class="bubble b3">优化建议</div><div class="bubble b4">效果跟踪</div><div class="bubble b5">行业对标</div></div></div>
+      <div class="hero-card">
+        <div class="crumb">系统六 · 算力性能监测与优化系统（运维辅助软件）</div>
+        <h1>算力性能监测、瓶颈诊断、优化建议一站式平台</h1>
+        <p>平台面向算力运维场景，提供实时指标监测、任务性能分析、性能告警、硬件校准、优化效果跟踪与行业对标能力，提升算力利用率与任务运行效率。</p>
+        <div class="hero-actions">
+          <button data-jump="realtime">查看实时监测</button>
+          <button class="secondary" data-jump="diagnosis">生成诊断报告</button>
+        </div>
+      </div>
+      <div class="flow-card">
+        <h3>性能优化流程图</h3>
+        <div class="flow">
+          <div class="bubble b1">实时监测</div>
+          <div class="bubble b2">瓶颈诊断</div>
+          <div class="bubble b3">优化建议</div>
+          <div class="bubble b4">效果跟踪</div>
+          <div class="bubble b5">行业对标</div>
+        </div>
+      </div>
     </div>
-    <div class="stat-row"><div class="stat-card"><span>GPU 平均利用率</span><strong>86%</strong><p>较昨日 +4.8%</p></div><div class="stat-card"><span>运行中任务</span><strong>42 个</strong><p>训练 26 / 推理 16</p></div><div class="stat-card"><span>网络延迟</span><strong>4.2 μs</strong><p>低于阈值 5μs</p></div><div class="stat-card"><span>待处理告警</span><strong>5 条</strong><p>平均响应 12 分钟</p></div></div>
-    <div class="two-col"><div class="module-card"><div class="module-head"><h3>核心能力覆盖</h3><a data-jump="task">查看任务分析</a></div><div class="feature-grid"><div><h4>算力性能实时监测</h4><p>GPU、显存、CPU、内存、网络带宽趋势展示。</p></div><div><h4>性能瓶颈诊断</h4><p>自动识别网络、显存、CPU调度等瓶颈原因。</p></div><div><h4>算力优化建议</h4><p>输出并行策略、网络配置、显存扩容等建议。</p></div><div><h4>优化效果跟踪</h4><p>对比优化前后任务效率与资源利用率变化。</p></div></div></div><div class="module-card"><div class="module-head"><h3>实时运行概览</h3><span class="pill">自动刷新</span></div><div class="progress-item"><b>B300 集群 A</b><span>GPU 负载 82%</span><i style="width:82%"></i></div><div class="progress-item"><b>H200 推理池</b><span>GPU 负载 57%</span><i style="width:57%"></i></div><div class="progress-item"><b>训练一体池</b><span>资源占用 69%</span><i style="width:69%"></i></div></div></div>
+
+    <div class="stat-row">
+      <div class="stat-card"><span>GPU 平均利用率</span><strong>86%</strong><p>较昨日 +4.8%</p></div>
+      <div class="stat-card"><span>运行中任务</span><strong>42 个</strong><p>训练 26 / 推理 16</p></div>
+      <div class="stat-card"><span>网络延迟</span><strong>4.2 μs</strong><p>低于阈值 5μs</p></div>
+      <div class="stat-card"><span>待处理告警</span><strong>5 条</strong><p>平均响应 12 分钟</p></div>
+    </div>
+
+    <div class="two-col">
+      <div class="module-card">
+        <div class="module-head"><h3>核心能力覆盖</h3><a data-jump="task">查看任务分析</a></div>
+        <div class="feature-grid">
+          <div><h4>算力性能实时监测</h4><p>GPU、显存、CPU、内存、网络带宽趋势展示。</p></div>
+          <div><h4>性能瓶颈诊断</h4><p>自动识别网络、显存、CPU调度等瓶颈原因。</p></div>
+          <div><h4>算力优化建议</h4><p>输出并行策略、网络配置、显存扩容等建议。</p></div>
+          <div><h4>优化效果跟踪</h4><p>对比优化前后任务效率与资源利用率变化。</p></div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-head"><h3>实时运行概览</h3><span class="pill">自动刷新</span></div>
+        <div class="progress-item"><b>B300 集群 A</b><span>GPU 负载 82%</span><i style="width:82%"></i></div>
+        <div class="progress-item"><b>H200 推理池</b><span>GPU 负载 57%</span><i style="width:57%"></i></div>
+        <div class="progress-item"><b>训练一体池</b><span>资源占用 69%</span><i style="width:69%"></i></div>
+      </div>
+    </div>
   </template>
-  <template id="realtimePage"><div class="page-panel"><div class="section-title"><h3>算力性能实时监测</h3><p>实时监测 GPU 算力、显存带宽、CPU 负载、内存占用、网络带宽等核心指标。</p></div><div class="filter-tabs"><button class="active">全部节点</button><button>B300</button><button>H200</button><button>高负载</button></div><div class="chart-wrap"><canvas id="realtimeChart"></canvas></div></div><div class="card-grid-3"><div class="data-card"><h4>GPU算力</h4><strong>914 TFLOPS</strong><p>峰值利用率 91%</p></div><div class="data-card"><h4>显存带宽</h4><strong>3.2 TB/s</strong><p>连续 24 小时稳定</p></div><div class="data-card"><h4>网络带宽</h4><strong>820 Gbps</strong><p>当前延迟 4.2 μs</p></div></div></template>
-  <template id="diagnosisPage"><div class="page-panel"><div class="section-title"><h3>性能瓶颈诊断</h3><p>自动分析性能数据，识别性能瓶颈并生成诊断报告。</p></div><div class="diagnosis-cards"><div class="diag-card high"><span>高风险</span><h4>网络通信瓶颈</h4><p>NODE-A17 多卡训练通信耗时占比达到 11.8%，建议检查 RDMA 配置和交换机队列。</p><button>查看报告</button></div><div class="diag-card mid"><span>中风险</span><h4>显存占用偏高</h4><p>TASK-0428-03 显存占用达到 91%，建议开启混合精度训练或降低 batch size。</p><button>查看报告</button></div><div class="diag-card low"><span>低风险</span><h4>CPU 调度滞后</h4><p>部分推理任务 CPU 预处理耗时偏高，可增加数据加载线程并缓存热点数据。</p><button>查看报告</button></div></div></div></template>
-  <template id="optimizationPage"><div class="page-panel"><div class="section-title"><h3>算力优化建议</h3><p>针对瓶颈提供任务并行策略、网络配置、显存扩容等优化建议。</p></div><div class="product-grid"><div class="product-card"><h3>任务并行策略优化</h3><strong>优先级 高</strong><p>启用数据并行 + 张量并行混合模式，降低单节点显存压力。</p><div><span>预计提升</span><span>12%-18%</span></div><button>应用建议</button></div><div class="product-card"><h3>网络配置优化</h3><strong>优先级 高</strong><p>对通信耗时高节点进行链路复测，优化 RDMA 与交换机队列。</p><div><span>降低延迟</span><span>1.2 μs</span></div><button>应用建议</button></div><div class="product-card"><h3>显存策略优化</h3><strong>优先级 中</strong><p>开启混合精度训练，降低 batch size，减少显存溢出风险。</p><div><span>显存释放</span><span>8%-15%</span></div><button>应用建议</button></div><div class="product-card"><h3>任务迁移建议</h3><strong>优先级 中</strong><p>将高负载任务迁移至空闲 GPU 节点，避免单节点过载。</p><div><span>负载均衡</span><span>提升明显</span></div><button>应用建议</button></div><div class="product-card"><h3>缓存清理优化</h3><strong>优先级 低</strong><p>清理任务临时缓存与无效日志，释放内存与存储 IO。</p><div><span>释放空间</span><span>320 GB</span></div><button>应用建议</button></div><div class="product-card"><h3>一键优化模拟</h3><strong>快捷操作</strong><p>模拟执行并行策略、网络配置与资源迁移优化。</p><div><span>状态</span><span id="quickStatus">待执行</span></div><button id="quickOptimize">一键优化</button></div></div></div></template>
-  <template id="taskPage"><div class="page-panel"><div class="section-title"><h3>任务性能分析</h3><p>分析客户训练/推理任务运行性能、迭代速度、算力利用率和通信耗时。</p></div><div class="table-wrap"><table><thead><tr><th>任务编号</th><th>客户</th><th>任务类型</th><th>GPU卡数</th><th>迭代速度</th><th>算力利用率</th><th>通信耗时</th><th>建议</th><th>状态</th></tr></thead><tbody id="taskTable"></tbody></table></div></div></template>
-  <template id="historyPage"><div class="page-panel"><div class="section-title"><h3>历史性能数据统计</h3><p>支持按时间段、设备型号、客户查询历史性能数据。</p></div><div class="chart-wrap"><canvas id="historyChart"></canvas></div></div><div class="stat-row"><div class="stat-card"><span>平均 GPU 利用率</span><strong>84.3%</strong><p>近7天统计</p></div><div class="stat-card"><span>峰值网络带宽</span><strong>912 Gbps</strong><p>高峰时段</p></div><div class="stat-card"><span>平均任务时长</span><strong>3.8 h</strong><p>同比下降 8%</p></div><div class="stat-card"><span>优化次数</span><strong>16 次</strong><p>本周记录</p></div></div></template>
-  <template id="alarmPage"><div class="page-panel"><div class="section-title"><h3>性能告警管理</h3><p>设置 GPU 利用率、网络延迟、显存占用等阈值，异常自动告警。</p></div><div class="table-wrap"><table><thead><tr><th>告警时间</th><th>节点</th><th>告警类型</th><th>当前值</th><th>阈值</th><th>级别</th><th>处理状态</th></tr></thead><tbody id="alarmTable"></tbody></table></div></div></template>
-  <template id="calibrationPage"><div class="page-panel"><div class="section-title"><h3>硬件性能校准</h3><p>定期对 GPU、服务器等硬件进行性能校准，发现性能衰减。</p></div><div class="chart-wrap"><canvas id="calibrationChart"></canvas></div></div><div class="card-grid-3"><div class="data-card"><h4>GPU-B300-08</h4><strong>92%</strong><p>建议复测并排查散热</p></div><div class="data-card"><h4>GPU-H200-12</h4><strong>98%</strong><p>运行正常</p></div><div class="data-card"><h4>NODE-A17</h4><strong>89%</strong><p>显存带宽下降明显</p></div></div></template>
-  <template id="trackingPage"><div class="page-panel"><div class="section-title"><h3>优化效果跟踪</h3><p>记录优化操作后的性能变化，对比优化前后的利用率和任务效率。</p></div><div class="compare-grid"><div><h4>优化前</h4><p>GPU 利用率 72%</p><p>通信耗时 11.8%</p><p>训练吞吐 1060 samples/s</p></div><div><h4>优化后</h4><p>GPU 利用率 86%</p><p>通信耗时 7.4%</p><p>训练吞吐 1280 samples/s</p></div></div></div></template>
-  <template id="benchmarkPage"><div class="page-panel"><div class="section-title"><h3>行业性能对标</h3><p>对接行业标准算力性能数据，找出差距并输出提升方案。</p></div><div class="benchmark-grid"><div><span>本集群 GPU 利用率</span><strong>86%</strong><p>行业参考 82%</p></div><div><span>平均训练吞吐</span><strong>1,280</strong><p>行业参考 1,180 samples/s</p></div><div><span>网络通信耗时</span><strong>7.4%</strong><p>行业参考 8.6%</p></div><div><span>任务完成效率</span><strong>+18.6%</strong><p>高于优化前</p></div></div></div></template>
+
+  <template id="realtimePage">
+    <div class="page-panel">
+      <div class="section-title"><h3>算力性能实时监测</h3><p>实时监测 GPU 算力、显存带宽、CPU 负载、内存占用、网络带宽等核心指标。</p></div>
+      <div class="filter-tabs"><button class="active">全部节点</button><button>B300</button><button>H200</button><button>高负载</button></div>
+      <div class="chart-wrap"><canvas id="realtimeChart"></canvas></div>
+    </div>
+    <div class="card-grid-3">
+      <div class="data-card"><h4>GPU算力</h4><strong>914 TFLOPS</strong><p>峰值利用率 91%</p></div>
+      <div class="data-card"><h4>显存带宽</h4><strong>3.2 TB/s</strong><p>连续 24 小时稳定</p></div>
+      <div class="data-card"><h4>网络带宽</h4><strong>820 Gbps</strong><p>当前延迟 4.2 μs</p></div>
+    </div>
+    <div class="page-panel">
+      <div class="section-title"><h3>节点状态明细</h3><p>展示重点算力节点的当前指标与运行状态。</p></div>
+      <div class="table-wrap"><table><thead><tr><th>节点名称</th><th>型号</th><th>GPU利用率</th><th>显存占用</th><th>CPU负载</th><th>网络带宽</th><th>状态</th></tr></thead><tbody id="nodeTable"></tbody></table></div>
+    </div>
+  </template>
+
+  <template id="diagnosisPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>性能瓶颈诊断</h3><p>自动分析性能数据，识别性能瓶颈并生成诊断报告。</p></div>
+      <div class="diagnosis-cards">
+        <div class="diag-card high"><span>高风险</span><h4>网络通信瓶颈</h4><p>NODE-A17 多卡训练通信耗时占比达到 11.8%，建议检查 RDMA 配置和交换机队列。</p><button>查看报告</button></div>
+        <div class="diag-card mid"><span>中风险</span><h4>显存占用偏高</h4><p>TASK-0428-03 显存占用达到 91%，建议开启混合精度训练或降低 batch size。</p><button>查看报告</button></div>
+        <div class="diag-card low"><span>低风险</span><h4>CPU 调度滞后</h4><p>部分推理任务 CPU 预处理耗时偏高，可增加数据加载线程并缓存热点数据。</p><button>查看报告</button></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="page-panel">
+        <div class="section-title"><h3>瓶颈指标趋势</h3><p>展示近 6 个时间点的通信耗时、显存占用和 CPU 等待比例。</p></div>
+        <div class="chart-wrap small"><canvas id="diagnosisChart"></canvas></div>
+      </div>
+      <div class="page-panel">
+        <div class="section-title"><h3>诊断摘要</h3><p>系统自动汇总本次分析结果。</p></div>
+        <div class="summary-list">
+          <p><span>诊断任务数</span><b>18 个</b></p>
+          <p><span>发现瓶颈项</span><b>6 项</b></p>
+          <p><span>高风险节点</span><b>2 台</b></p>
+          <p><span>预计优化收益</span><b>12% - 18%</b></p>
+        </div>
+        <div class="mini-report">
+          <h4>处理建议优先级</h4>
+          <ol>
+            <li>优先处理 NODE-A17 网络链路抖动。</li>
+            <li>对显存占用超过 90% 的任务开启混合精度。</li>
+            <li>将低利用率 GPU 节点加入任务调度候选池。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-panel">
+      <div class="section-title"><h3>诊断记录列表</h3><p>记录每次自动诊断的瓶颈类型、影响范围和处理状态。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>诊断时间</th><th>对象</th><th>瓶颈类型</th><th>影响范围</th><th>建议动作</th><th>状态</th></tr></thead>
+          <tbody id="diagnosisTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </template>
+
+  <template id="optimizationPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>算力优化建议</h3><p>针对瓶颈提供任务并行策略、网络配置、显存扩容等优化建议。</p></div>
+      <div class="product-grid">
+        <div class="product-card"><h3>任务并行策略优化</h3><strong>优先级 高</strong><p>对大模型训练任务启用数据并行 + 张量并行混合模式，降低单节点显存压力。</p><div><span>预计提升</span><span>12%-18%</span></div><button>应用建议</button></div>
+        <div class="product-card"><h3>网络配置优化</h3><strong>优先级 高</strong><p>对通信耗时高节点进行链路复测，优化 RDMA 与交换机队列参数。</p><div><span>预计降低延迟</span><span>1.2 μs</span></div><button>应用建议</button></div>
+        <div class="product-card"><h3>显存策略优化</h3><strong>优先级 中</strong><p>开启混合精度训练，降低 batch size，减少显存溢出风险。</p><div><span>显存释放</span><span>8%-15%</span></div><button>应用建议</button></div>
+        <div class="product-card"><h3>任务迁移建议</h3><strong>优先级 中</strong><p>将高负载任务迁移至空闲 GPU 节点，避免单节点过载。</p><div><span>负载均衡</span><span>提升明显</span></div><button>应用建议</button></div>
+        <div class="product-card"><h3>缓存清理优化</h3><strong>优先级 低</strong><p>清理任务临时缓存与无效日志，释放内存与存储 IO。</p><div><span>释放空间</span><span>320 GB</span></div><button>应用建议</button></div>
+        <div class="product-card"><h3>一键优化模拟</h3><strong>快捷操作</strong><p>模拟执行并行策略、网络配置与资源迁移优化，并记录效果。</p><div><span>状态</span><span id="quickStatus">待执行</span></div><button id="quickOptimize">一键优化</button></div>
+      </div>
+    </div>
+    <div class="page-panel">
+      <div class="section-title"><h3>优化任务队列</h3><p>展示已生成的优化任务及执行进度。</p></div>
+      <div class="table-wrap"><table><thead><tr><th>优化编号</th><th>优化对象</th><th>动作</th><th>预计收益</th><th>负责人</th><th>进度</th></tr></thead><tbody id="optTable"></tbody></table></div>
+    </div>
+  </template>
+
+  <template id="taskPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>任务性能分析</h3><p>分析客户训练/推理任务运行性能、迭代速度、算力利用率和通信耗时。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>任务编号</th><th>客户</th><th>任务类型</th><th>GPU卡数</th><th>迭代速度</th><th>算力利用率</th><th>通信耗时</th><th>建议</th><th>状态</th></tr></thead>
+          <tbody id="taskTable"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-grid-3">
+      <div class="data-card"><h4>平均迭代速度</h4><strong>5.82 iter/s</strong><p>较昨日提升 9%</p></div>
+      <div class="data-card"><h4>平均通信耗时</h4><strong>7.4 ms</strong><p>高风险任务 2 个</p></div>
+      <div class="data-card"><h4>任务成功率</h4><strong>98.7%</strong><p>失败任务已自动标记</p></div>
+    </div>
+  </template>
+
+  <template id="historyPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>历史性能数据统计</h3><p>支持按时间段、设备型号、客户查询历史性能数据。</p></div>
+      <div class="chart-wrap"><canvas id="historyChart"></canvas></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card"><span>平均 GPU 利用率</span><strong>84.3%</strong><p>近7天统计</p></div>
+      <div class="stat-card"><span>峰值网络带宽</span><strong>912 Gbps</strong><p>高峰时段</p></div>
+      <div class="stat-card"><span>平均任务时长</span><strong>3.8 h</strong><p>同比下降 8%</p></div>
+      <div class="stat-card"><span>优化次数</span><strong>16 次</strong><p>本周记录</p></div>
+    </div>
+    <div class="page-panel"><div class="section-title"><h3>历史查询记录</h3><p>最近查看的性能统计报表。</p></div><div class="table-wrap"><table><thead><tr><th>报表名称</th><th>统计周期</th><th>设备类型</th><th>生成时间</th><th>操作</th></tr></thead><tbody id="historyTable"></tbody></table></div></div>
+  </template>
+
+  <template id="alarmPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>性能告警管理</h3><p>设置 GPU 利用率、网络延迟、显存占用等阈值，异常自动告警。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>告警时间</th><th>节点</th><th>告警类型</th><th>当前值</th><th>阈值</th><th>级别</th><th>处理状态</th></tr></thead>
+          <tbody id="alarmTable"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-grid-3">
+      <div class="data-card"><h4>今日告警</h4><strong>12 条</strong><p>较昨日 -3 条</p></div>
+      <div class="data-card"><h4>平均响应</h4><strong>12 分钟</strong><p>符合运维要求</p></div>
+      <div class="data-card"><h4>已处理</h4><strong>7 条</strong><p>剩余 5 条待处理</p></div>
+    </div>
+  </template>
+
+  <template id="calibrationPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>硬件性能校准</h3><p>定期对 GPU、服务器等硬件进行性能校准，发现性能衰减。</p></div>
+      <div class="chart-wrap"><canvas id="calibrationChart"></canvas></div>
+    </div>
+    <div class="card-grid-3">
+      <div class="data-card"><h4>GPU-B300-08</h4><strong>92%</strong><p>建议复测并排查散热</p></div>
+      <div class="data-card"><h4>GPU-H200-12</h4><strong>98%</strong><p>运行正常</p></div>
+      <div class="data-card"><h4>NODE-A17</h4><strong>89%</strong><p>显存带宽下降明显</p></div>
+    </div>
+    <div class="page-panel"><div class="section-title"><h3>校准计划</h3><p>后续硬件校准排期。</p></div><div class="table-wrap"><table><thead><tr><th>设备</th><th>校准项目</th><th>计划时间</th><th>责任人</th><th>状态</th></tr></thead><tbody id="calTable"></tbody></table></div></div>
+  </template>
+
+  <template id="trackingPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>优化效果跟踪</h3><p>记录优化操作后的性能变化，对比优化前后的利用率和任务效率。</p></div>
+      <div class="compare-grid">
+        <div><h4>优化前</h4><p>GPU 利用率 72%</p><p>通信耗时 11.8%</p><p>训练吞吐 1060 samples/s</p></div>
+        <div><h4>优化后</h4><p>GPU 利用率 86%</p><p>通信耗时 7.4%</p><p>训练吞吐 1280 samples/s</p></div>
+      </div>
+    </div>
+    <div class="page-panel"><div class="section-title"><h3>优化台账</h3><p>记录每次优化动作、影响任务与效果。</p></div><div class="table-wrap"><table><thead><tr><th>时间</th><th>对象</th><th>优化动作</th><th>优化前</th><th>优化后</th><th>效果</th></tr></thead><tbody id="trackTable"></tbody></table></div></div>
+  </template>
+
+  <template id="benchmarkPage">
+    <div class="page-panel">
+      <div class="section-title"><h3>行业性能对标</h3><p>对接行业标准算力性能数据，找出差距并输出提升方案。</p></div>
+      <div class="benchmark-grid">
+        <div><span>本集群 GPU 利用率</span><strong>86%</strong><p>行业参考 82%</p></div>
+        <div><span>平均训练吞吐</span><strong>1,280</strong><p>行业参考 1,180 samples/s</p></div>
+        <div><span>网络通信耗时</span><strong>7.4%</strong><p>行业参考 8.6%</p></div>
+        <div><span>任务完成效率</span><strong>+18.6%</strong><p>高于优化前</p></div>
+      </div>
+    </div>
+    <div class="page-panel"><div class="section-title"><h3>提升方案</h3><p>根据对标结果生成后续改进方向。</p></div><div class="feature-grid"><div><h4>提升 GPU 利用率</h4><p>将低负载任务集中调度到空闲节点，减少资源碎片。</p></div><div><h4>降低通信损耗</h4><p>持续优化 RDMA 链路与交换机队列。</p></div><div><h4>提升任务吞吐</h4><p>推广混合精度训练和批处理优化策略。</p></div><div><h4>完善运维闭环</h4><p>将诊断、优化、跟踪流程沉淀为标准台账。</p></div></div></div>
+  </template>
+
   <script src="script.js"></script>
 </body>
 </html>
