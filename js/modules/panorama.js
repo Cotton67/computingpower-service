@@ -194,19 +194,19 @@ async function initCharts() {
       endAngle: -20,
       min: 0,
       max: 100,
-      detail: { formatter: '{value}%', fontSize: 24, color: '#e4e6eb', offsetCenter: [0, '60%'] },
+      detail: { formatter: '{value}%', fontSize: 24, color: '#303133', offsetCenter: [0, '60%'] },
       data: [{ value: Math.round(avgUtil * 100), name: 'GPU利用率' }],
       axisLine: {
         lineStyle: {
           width: 16,
-          color: [[0.4, '#ef4444'], [0.7, '#f59e0b'], [1, '#22c55e']],
+          color: [[0.4, '#f56c6c'], [0.7, '#e6a23c'], [1, '#67c23a']],
         },
       },
       axisTick: { show: false },
       splitLine: { length: 10, lineStyle: { width: 2, color: '#999' } },
-      axisLabel: { distance: 20, color: '#9ca3af', fontSize: 10 },
+      axisLabel: { distance: 20, color: '#909399', fontSize: 10 },
       pointer: { width: 5 },
-      title: { show: true, offsetCenter: [0, '80%'], color: '#9ca3af', fontSize: 12 },
+      title: { show: true, offsetCenter: [0, '80%'], color: '#909399', fontSize: 12 },
     }],
   });
 
@@ -221,9 +221,9 @@ async function initCharts() {
       type: 'line',
       data: trendData,
       smooth: true,
-      areaStyle: { color: 'rgba(59,130,246,0.15)' },
-      lineStyle: { color: '#3b82f6', width: 2 },
-      itemStyle: { color: '#3b82f6' },
+      areaStyle: { color: 'rgba(64,158,255,0.15)' },
+      lineStyle: { color: '#409eff', width: 2 },
+      itemStyle: { color: '#409eff' },
     }],
     grid: { top: 20, right: 20, bottom: 30, left: 50 },
   });

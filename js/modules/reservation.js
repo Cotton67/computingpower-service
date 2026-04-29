@@ -165,7 +165,7 @@ async function initGantt() {
     return {
       value: [startDay, startDay + duration, duration, r.id],
       itemStyle: {
-        color: isExpired ? '#4b5563' : (isExpiring ? '#f59e0b' : colors[i % colors.length]),
+        color: isExpired ? '#c0c4cc' : (isExpiring ? '#e6a23c' : colors[i % colors.length]),
       },
     };
   });

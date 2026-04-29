@@ -1,13 +1,13 @@
 const chartInstances = [];
 
-const darkTheme = {
+const chartTheme = {
   backgroundColor: 'transparent',
-  textStyle: { color: '#9ca3af' },
-  legend: { textStyle: { color: '#9ca3af' } },
+  textStyle: { color: '#606266' },
+  legend: { textStyle: { color: '#606266' } },
   tooltip: {
-    backgroundColor: '#1a1d27',
-    borderColor: '#2a2d3a',
-    textStyle: { color: '#e4e6eb', fontSize: 12 },
+    backgroundColor: '#ffffff',
+    borderColor: '#e4e7ed',
+    textStyle: { color: '#303133', fontSize: 12 },
   },
   grid: {
     top: 40,
@@ -17,18 +17,18 @@ const darkTheme = {
     containLabel: true,
   },
   xAxis: {
-    axisLine: { lineStyle: { color: '#2a2d3a' } },
-    axisLabel: { color: '#9ca3af' },
-    splitLine: { lineStyle: { color: '#1f2937' } },
+    axisLine: { lineStyle: { color: '#e4e7ed' } },
+    axisLabel: { color: '#909399' },
+    splitLine: { lineStyle: { color: '#ebeef5' } },
   },
   yAxis: {
-    axisLine: { lineStyle: { color: '#2a2d3a' } },
-    axisLabel: { color: '#9ca3af' },
-    splitLine: { lineStyle: { color: '#1f2937' } },
+    axisLine: { lineStyle: { color: '#e4e7ed' } },
+    axisLabel: { color: '#909399' },
+    splitLine: { lineStyle: { color: '#ebeef5' } },
   },
 };
 
-const colors = ['#3b82f6', '#22c55e', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#f97316', '#ec4899'];
+const colors = ['#409eff', '#67c23a', '#e6a23c', '#f56c6c', '#8b5cf6', '#06b6d4', '#f97316', '#ec4899'];
 
 function waitForEcharts(timeout = 10000) {
   return new Promise((resolve) => {
@@ -59,7 +59,7 @@ export async function createChart(containerId, option) {
   const chart = echarts.init(container, null, { renderer: 'canvas' });
   chartInstances.push({ id: containerId, chart });
 
-  const mergedOption = mergeDeep({}, darkTheme, option);
+  const mergedOption = mergeDeep({}, chartTheme, option);
   chart.setOption(mergedOption);
 
   // 延迟 resize 确保布局已完成

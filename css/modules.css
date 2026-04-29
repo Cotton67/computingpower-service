@@ -1,10 +1,8 @@
 /* Module-specific styles */
 
 /* M1 Panorama */
-.panorama-filters { composes: filter-bar; }
-
-.node-highlight-idle { background: rgba(34,197,94,0.08); }
-.node-highlight-overloaded { background: rgba(239,68,68,0.08); }
+.node-highlight-idle { background: rgba(103,194,58,0.06); }
+.node-highlight-overloaded { background: rgba(245,108,108,0.06); }
 
 /* M2 Allocation */
 .resource-pool-chart { height: 300px; }
@@ -17,8 +15,8 @@
 
 .alloc-mode-toggle {
   display: flex;
-  background: var(--bg-tertiary);
-  border-radius: var(--radius);
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
 }
@@ -56,15 +54,15 @@
   font-weight: 600;
 }
 
-.priority-1 { background: #6b7280; }
-.priority-2 { background: #3b82f6; }
-.priority-3 { background: #f59e0b; }
+.priority-1 { background: #909399; }
+.priority-2 { background: #409eff; }
+.priority-3 { background: #e6a23c; }
 .priority-4 { background: #f97316; }
-.priority-5 { background: #ef4444; }
+.priority-5 { background: #f56c6c; }
 
 /* M4 Elastic */
 .billing-preview {
-  background: var(--bg-tertiary);
+  background: #f5f7fa;
   border-radius: var(--radius);
   padding: var(--space-md);
   margin-top: var(--space-md);
@@ -91,6 +89,7 @@
   border-radius: var(--radius-sm);
   position: relative;
   overflow: hidden;
+  background: #ebeef5;
 }
 
 .load-bar-fill {
@@ -105,14 +104,13 @@
   transform: translateY(-50%);
   font-size: 11px;
   font-weight: 600;
-  color: white;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  color: var(--text-primary);
 }
 
 /* M6 Health */
 .health-grid-card {
   background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius);
   padding: var(--space-md);
 }
@@ -131,8 +129,8 @@
 /* M7 Statistics */
 .period-selector {
   display: flex;
-  background: var(--bg-tertiary);
-  border-radius: var(--radius);
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
 }
@@ -154,8 +152,8 @@
 
 .view-toggle {
   display: flex;
-  background: var(--bg-tertiary);
-  border-radius: var(--radius);
+  background: #f5f7fa;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
 }

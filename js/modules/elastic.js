@@ -155,19 +155,19 @@ async function initTimeline() {
 
   charts.timeline = await createChart('elastic-timeline', {
     xAxis: { type: 'category', data: days },
-    yAxis: { type: 'value', name: 'GPU数', nameTextStyle: { color: '#9ca3af' } },
+    yAxis: { type: 'value', name: 'GPU数', nameTextStyle: { color: '#909399' } },
     series: [{
       type: 'line',
       data: baseData,
       smooth: true,
-      lineStyle: { color: '#3b82f6', width: 2 },
-      areaStyle: { color: 'rgba(59,130,246,0.1)' },
-      itemStyle: { color: '#3b82f6' },
+      lineStyle: { color: '#409eff', width: 2 },
+      areaStyle: { color: 'rgba(64,158,255,0.1)' },
+      itemStyle: { color: '#409eff' },
       markPoint: {
         data: [
-          { coord: [3, 200], value: '+12', itemStyle: { color: '#22c55e' } },
-          { coord: [5, 204], value: '+12', itemStyle: { color: '#22c55e' } },
-          { coord: [1, 192], value: '-4', itemStyle: { color: '#ef4444' } },
+          { coord: [3, 200], value: '+12', itemStyle: { color: '#67c23a' } },
+          { coord: [5, 204], value: '+12', itemStyle: { color: '#67c23a' } },
+          { coord: [1, 192], value: '-4', itemStyle: { color: '#f56c6c' } },
         ],
         symbolSize: 40,
         label: { color: '#fff', fontSize: 11 },

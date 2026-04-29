@@ -129,18 +129,18 @@ async function initRevenueChart() {
 
   charts.revenue = await createChart('revenue-chart', {
     tooltip: { trigger: 'axis' },
-    legend: { bottom: 0, textStyle: { color: '#9ca3af' } },
+    legend: { bottom: 0, textStyle: { color: '#909399' } },
     xAxis: { type: 'category', data: dates },
     yAxis: [
-      { type: 'value', name: '收入(元)', nameTextStyle: { color: '#9ca3af' } },
-      { type: 'value', name: '利用率(%)', max: 100, nameTextStyle: { color: '#9ca3af' } },
+      { type: 'value', name: '收入(元)', nameTextStyle: { color: '#909399' } },
+      { type: 'value', name: '利用率(%)', max: 100, nameTextStyle: { color: '#909399' } },
     ],
     series: [
       {
         name: '收入',
         type: 'bar',
         data: revenues,
-        itemStyle: { color: '#3b82f6', borderRadius: [4, 4, 0, 0] },
+        itemStyle: { color: '#409eff', borderRadius: [4, 4, 0, 0] },
         barWidth: currentPeriod === 'day' ? 40 : undefined,
       },
       {
@@ -149,8 +149,8 @@ async function initRevenueChart() {
         yAxisIndex: 1,
         data: utils,
         smooth: true,
-        lineStyle: { color: '#f59e0b' },
-        itemStyle: { color: '#f59e0b' },
+        lineStyle: { color: '#e6a23c' },
+        itemStyle: { color: '#e6a23c' },
       },
     ],
     grid: { top: 30, right: 60, bottom: 40, left: 70 },
@@ -187,7 +187,7 @@ async function initCustomerRankChart() {
         value: v,
         itemStyle: { color: getColors()[i % getColors().length] },
       })),
-      label: { show: true, position: 'right', formatter: '{c}元', color: '#e4e6eb', fontSize: 11 },
+      label: { show: true, position: 'right', formatter: '{c}元', color: '#303133', fontSize: 11 },
     }],
     grid: { top: 10, right: 80, bottom: 10, left: 80 },
   });
@@ -213,8 +213,8 @@ async function initHeatmap() {
       orient: 'horizontal',
       left: 'center',
       bottom: 0,
-      inRange: { color: ['#0f1117', '#1e3a5f', '#3b82f6', '#f59e0b', '#ef4444'] },
-      textStyle: { color: '#9ca3af' },
+      inRange: { color: ['#f5f7fa', '#ecf5ff', '#409eff', '#e6a23c', '#f56c6c'] },
+      textStyle: { color: '#909399' },
     },
     series: [{
       type: 'heatmap',

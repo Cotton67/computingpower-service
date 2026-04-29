@@ -229,15 +229,15 @@ async function showNodeDetail(nodeId) {
     const hours = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, '0')}:00`);
     await createChart(tempChartId, {
       xAxis: { type: 'category', data: hours },
-      yAxis: { type: 'value', name: '°C', nameTextStyle: { color: '#9ca3af' } },
+      yAxis: { type: 'value', name: '°C', nameTextStyle: { color: '#909399' } },
       series: [{
         type: 'line',
         data: tempHistory,
         smooth: true,
-        lineStyle: { color: hd.gpuTemp > 85 ? '#ef4444' : '#f59e0b' },
-        areaStyle: { color: hd.gpuTemp > 85 ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)' },
-        itemStyle: { color: hd.gpuTemp > 85 ? '#ef4444' : '#f59e0b' },
-        markLine: { data: [{ yAxis: 85, name: '告警线', lineStyle: { color: '#ef4444', type: 'dashed' } }] },
+        lineStyle: { color: hd.gpuTemp > 85 ? '#f56c6c' : '#e6a23c' },
+        areaStyle: { color: hd.gpuTemp > 85 ? 'rgba(245,108,108,0.1)' : 'rgba(230,162,60,0.1)' },
+        itemStyle: { color: hd.gpuTemp > 85 ? '#f56c6c' : '#e6a23c' },
+        markLine: { data: [{ yAxis: 85, name: '告警线', lineStyle: { color: '#f56c6c', type: 'dashed' } }] },
       }],
       grid: { top: 20, right: 20, bottom: 30, left: 50 },
     });

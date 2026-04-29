@@ -125,7 +125,7 @@ async function initLoadChart() {
   const onlineNodes = nodes.filter(n => n.status === 'online');
   const names = onlineNodes.map(n => n.name);
   const values = onlineNodes.map(n => Math.round(n.gpuUtilization * 100));
-  const colors = onlineNodes.map(n => n.gpuUtilization > 0.9 ? '#ef4444' : (n.gpuUtilization > 0.7 ? '#f59e0b' : '#22c55e'));
+  const colors = onlineNodes.map(n => n.gpuUtilization > 0.9 ? '#f56c6c' : (n.gpuUtilization > 0.7 ? '#e6a23c' : '#67c23a'));
 
   charts.load = await createChart('load-chart', {
     xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
@@ -134,7 +134,7 @@ async function initLoadChart() {
       type: 'bar',
       data: values.map((v, i) => ({ value: v, itemStyle: { color: colors[i] } })),
       barWidth: 12,
-      label: { show: true, position: 'right', formatter: '{c}%', color: '#e4e6eb', fontSize: 11 },
+      label: { show: true, position: 'right', formatter: '{c}%', color: '#303133', fontSize: 11 },
     }],
     grid: { top: 10, right: 60, bottom: 10, left: 120 },
   });
@@ -152,19 +152,19 @@ async function initGauge() {
       endAngle: -20,
       min: 0,
       max: 100,
-      detail: { formatter: '{value}%', fontSize: 24, color: '#e4e6eb', offsetCenter: [0, '60%'] },
+      detail: { formatter: '{value}%', fontSize: 24, color: '#303133', offsetCenter: [0, '60%'] },
       data: [{ value: Math.round(avgUtil * 100), name: '利用率' }],
       axisLine: {
         lineStyle: {
           width: 16,
-          color: [[0.85, '#ef4444'], [1, '#22c55e']],
+          color: [[0.85, '#f56c6c'], [1, '#67c23a']],
         },
       },
       axisTick: { show: false },
       splitLine: { length: 10, lineStyle: { width: 2, color: '#999' } },
-      axisLabel: { distance: 20, color: '#9ca3af', fontSize: 10 },
+      axisLabel: { distance: 20, color: '#909399', fontSize: 10 },
       pointer: { width: 5 },
-      title: { show: true, offsetCenter: [0, '80%'], color: '#9ca3af', fontSize: 12 },
+      title: { show: true, offsetCenter: [0, '80%'], color: '#909399', fontSize: 12 },
     }],
   });
 }

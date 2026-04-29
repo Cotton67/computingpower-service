@@ -147,17 +147,17 @@ async function initPoolChart() {
 
   pieChart = await createChart('pool-chart', {
     tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
-    legend: { bottom: 10, textStyle: { color: '#9ca3af' } },
+    legend: { bottom: 10, textStyle: { color: '#909399' } },
     series: [{
       type: 'pie',
       radius: ['40%', '70%'],
       avoidLabelOverlap: false,
-      itemStyle: { borderRadius: 6, borderColor: '#1a1d27', borderWidth: 2 },
-      label: { show: true, color: '#e4e6eb', formatter: '{b}\n{d}%' },
+      itemStyle: { borderRadius: 6, borderColor: '#ffffff', borderWidth: 2 },
+      label: { show: true, color: '#303133', formatter: '{b}\n{d}%' },
       data: [
-        { value: allocatedGPUs, name: '已分配', itemStyle: { color: '#3b82f6' } },
-        { value: reservedGPUs, name: '预留', itemStyle: { color: '#f59e0b' } },
-        { value: freeGPUs, name: '空闲', itemStyle: { color: '#22c55e' } },
+        { value: allocatedGPUs, name: '已分配', itemStyle: { color: '#409eff' } },
+        { value: reservedGPUs, name: '预留', itemStyle: { color: '#e6a23c' } },
+        { value: freeGPUs, name: '空闲', itemStyle: { color: '#67c23a' } },
       ],
     }],
   });
