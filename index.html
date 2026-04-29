@@ -1,186 +1,153 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>算力性能监测与优化系统</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>算力服务平台原型展示</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #155eef, #0f3fa8);
+      color: #fff;
+      padding: 48px 8%;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 17px;
+      line-height: 1.8;
+      opacity: 0.95;
+      max-width: 900px;
+    }
+
+    main {
+      padding: 36px 8%;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #155eef;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      background: #155eef;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      background: #0f3fa8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 8%;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="logo">
-      <div class="logo-mark">算</div>
-      <div>
-        <h1>系统六</h1>
-        <p>性能监测与优化</p>
+  <header>
+    <h1>算力服务平台原型展示</h1>
+    <p>
+      本页面用于统一展示各小组成员提交的 HTML + CSS + JS 前端原型页面。
+      点击下方入口可以查看不同系统模块的页面效果。
+    </p>
+  </header>
+
+  <main>
+    <h2 class="section-title">系统页面入口</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h2>系统一：算力资源管理页面</h2>
+        <p>展示算力资源管理、资源状态、节点信息等相关页面。</p>
+        <a href="./sys1-cyf/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统二：算力任务调度页面</h2>
+        <p>展示任务提交、任务调度、任务执行状态等相关页面。</p>
+        <a href="./sys2-sfy/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统三：客户算力租赁服务平台</h2>
+        <p>展示算力租赁、任务提交、状态查询、费用结算等客户侧功能。</p>
+        <a href="./sys3-hmr/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统四：算力计费结算管理系统</h2>
+        <p>展示计费规则、自动计费、账单管理、对账结算等功能。</p>
+        <a href="./sys4-lmf/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统五：运维监控管理页面</h2>
+        <p>展示运行监控、告警管理、服务状态、系统日志等功能。</p>
+        <a href="./sys5-ltc-1/index.html">查看页面</a>
+      </div>
+
+      <div class="card">
+        <h2>系统六：综合管理页面</h2>
+        <p>展示后台管理、数据统计、用户管理、业务分析等功能。</p>
+        <a href="./sys6-kdh/index.html">查看页面</a>
       </div>
     </div>
-    <nav>
-      <a href="#overview" class="active">性能总览</a>
-      <a href="#monitor">实时监测</a>
-      <a href="#diagnosis">瓶颈诊断</a>
-      <a href="#optimization">优化建议</a>
-      <a href="#tasks">任务分析</a>
-      <a href="#history">历史统计</a>
-      <a href="#alerts">性能告警</a>
-      <a href="#calibration">硬件校准</a>
-      <a href="#benchmark">行业对标</a>
-    </nav>
-    <div class="side-card">
-      <span>当前集群</span>
-      <strong>B300 / H200 混合集群</strong>
-      <p>在线节点 128 / 130</p>
-    </div>
-  </aside>
-
-  <main class="main">
-    <header class="topbar">
-      <div>
-        <h2>算力性能监测与优化系统</h2>
-        <p>实时监测算力集群性能，发现瓶颈并提供优化建议</p>
-      </div>
-      <div class="actions">
-        <select id="rangeSelect">
-          <option>今日</option>
-          <option>近7天</option>
-          <option>近30天</option>
-        </select>
-        <button id="refreshBtn">刷新模拟数据</button>
-      </div>
-    </header>
-
-    <section id="overview" class="cards">
-      <article><span>GPU平均利用率</span><b id="gpuVal">86%</b><em class="green">较昨日 +4.8%</em></article>
-      <article><span>CPU平均负载</span><b id="cpuVal">62%</b><em>运行稳定</em></article>
-      <article><span>内存占用率</span><b id="memVal">68%</b><em>可用 2.8 TB</em></article>
-      <article><span>网络延迟</span><b id="latencyVal">4.2 μs</b><em class="cyan">低于告警阈值</em></article>
-      <article><span>显存带宽</span><b id="bandVal">3.1 TB/s</b><em class="green">带宽充足</em></article>
-      <article class="warning-card"><span>未处理告警</span><b id="alertVal">3</b><em>需要关注</em></article>
-    </section>
-
-    <section id="monitor" class="grid-2">
-      <div class="panel">
-        <div class="section-title">
-          <h3>实时性能趋势</h3>
-          <p>GPU、CPU、内存核心指标曲线</p>
-        </div>
-        <canvas id="trendChart"></canvas>
-      </div>
-      <div class="panel">
-        <div class="section-title">
-          <h3>资源利用分布</h3>
-          <p>当前集群资源占用比例</p>
-        </div>
-        <canvas id="resourceChart"></canvas>
-      </div>
-    </section>
-
-    <section id="diagnosis" class="panel">
-      <div class="section-title">
-        <h3>性能瓶颈诊断</h3>
-        <p>模拟分析网络、显存、CPU调度等瓶颈</p>
-      </div>
-      <div class="diagnosis-list" id="diagnosisList"></div>
-    </section>
-
-    <section id="optimization" class="panel">
-      <div class="section-title">
-        <h3>算力优化建议</h3>
-        <p>根据性能瓶颈输出可落地优化方案</p>
-      </div>
-      <div class="opt-layout">
-        <ul id="suggestionList"></ul>
-        <div class="opt-card">
-          <h4>模拟一键优化</h4>
-          <p>自动调整任务并行策略、释放缓存、优化网络链路。</p>
-          <button id="optimizeBtn">执行优化</button>
-          <div id="optimizeResult">等待执行优化操作</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tasks" class="panel">
-      <div class="section-title">
-        <h3>任务性能分析</h3>
-        <p>展示客户任务迭代速度、算力利用率、通信耗时</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>任务编号</th><th>客户</th><th>任务类型</th><th>GPU卡数</th>
-              <th>迭代速度</th><th>算力利用率</th><th>通信耗时</th><th>建议</th><th>状态</th>
-            </tr>
-          </thead>
-          <tbody id="taskTable"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="history" class="grid-2">
-      <div class="panel">
-        <div class="section-title">
-          <h3>历史性能数据统计</h3>
-          <p>按时间段统计性能变化规律</p>
-        </div>
-        <canvas id="historyChart"></canvas>
-      </div>
-      <div class="panel summary">
-        <h3>统计摘要</h3>
-        <p><span>平均GPU利用率</span><b>84.3%</b></p>
-        <p><span>峰值网络带宽</span><b>912 Gbps</b></p>
-        <p><span>平均任务完成时长</span><b>3.8 h</b></p>
-        <p><span>本周优化次数</span><b>16 次</b></p>
-      </div>
-    </section>
-
-    <section id="alerts" class="panel">
-      <div class="section-title">
-        <h3>性能告警管理</h3>
-        <p>阈值示例：GPU利用率≤30%、网络延迟≥5μs、显存占用≥90%</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>时间</th><th>节点</th><th>告警类型</th><th>当前值</th><th>阈值</th><th>级别</th><th>状态</th></tr></thead>
-          <tbody id="alertTable"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="calibration" class="grid-2">
-      <div class="panel">
-        <div class="section-title">
-          <h3>硬件性能校准</h3>
-          <p>对比标称性能与实际性能</p>
-        </div>
-        <canvas id="calibrationChart"></canvas>
-      </div>
-      <div class="panel calibration">
-        <h3>校准结果</h3>
-        <div class="item warn"><b>GPU-B300-08</b><span>实际性能为标称值 92%，建议复测</span></div>
-        <div class="item ok"><b>GPU-H200-12</b><span>实际性能为标称值 98%，运行正常</span></div>
-        <div class="item danger"><b>NODE-A17</b><span>显存带宽下降明显，建议排查硬件</span></div>
-      </div>
-    </section>
-
-    <section id="benchmark" class="panel">
-      <div class="section-title">
-        <h3>行业性能对标与优化效果跟踪</h3>
-        <p>对比行业参考数据，记录优化前后变化</p>
-      </div>
-      <div class="benchmark">
-        <article><span>本集群GPU利用率</span><b>86%</b><p>行业参考：82%</p></article>
-        <article><span>平均训练吞吐</span><b>1,280 samples/s</b><p>优化前：1,060 samples/s</p></article>
-        <article><span>网络通信耗时</span><b>7.4%</b><p>优化前：11.8%</p></article>
-        <article><span>任务完成效率</span><b>+18.6%</b><p>优化后提升</p></article>
-      </div>
-    </section>
-
-    <footer>系统六：算力性能监测与优化系统（运维辅助软件）｜负责人：孔德华</footer>
   </main>
-</div>
-<script src="script.js"></script>
+
+  <footer>
+    computingpower-service · GitHub Pages 前端原型展示
+  </footer>
 </body>
 </html>
